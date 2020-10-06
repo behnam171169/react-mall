@@ -1,0 +1,79 @@
+import React, { Component,useState } from 'react'
+import './Createcomment.css'
+import Swal from 'sweetalert2'
+import axios from 'axios';
+import Spiner from './../../spinner/spinner';
+const CreateComment=(props)=>{
+    const [name, setname] = useState('')
+    const [comment, setcomment] = useState('')
+    const[error,seterror]=useState('')
+    const [showspiner,setShowspiner]=useState(false);
+    const changename=(event)=>{
+        setname(event.target.value)
+    }
+    const changecomment=(event)=>{
+        setcomment(event.target.value)
+    }
+    const createcomment=()=>{
+        if(name.length<1 || comment.length<1){
+            seterror('پرکردن همه ی فیلد ها اجباریست')
+            
+        }else{
+            setShowspiner(true)
+            seterror('')
+            const   data=JSON.stringify({
+                name:name,
+                comment:comment,
+                course:props.location.state.id
+            })
+            
+            axios.post('http://localhost:3000/createcomment',data, { 
+            
+        }).then((response)=>{
+            setShowspiner(true)
+            if(response.status==200) {
+                Swal.fire({
+                    title: 'نظرشما با موفقیت ثبت شد',
+                    icon: 'sucses',
+                    confirmButtonText: 'متوجه شدم',
+                })
+                setShowspiner(false)
+                props.history.push({
+                    pathname: '/postdetails',
+                    state: { id:props.location.state.id}
+                })
+            }else if(response.status==400){
+                Swal.fire({
+                    title: 'خطا در ثبت نظر',
+                    icon: 'warning',
+                    confirmButtonText: 'متوجه شدم',
+                })
+                setShowspiner(false)
+            }else if(response.status==500){
+                Swal.fire({
+                    title: 'خطا در ارتباط با سرور',
+                    icon: 'warning',
+                    confirmButtonText: 'متوجه شدم',
+                })
+            }
+            console.log(response.data)
+        })
+    }}
+    return(
+        <div className="maincomment">
+        <div className="comment">
+        <text >ثبت نظر کاربران</text>
+        </div>
+        <div style={{display:error.length>0?'flex':'none'}} className="errorcreatecomment">
+        <text  >{error}</text>
+        </div>
+        <input className="createcommentinput" placeholder="نام خود را وارد کنید" onChange={changename} />
+        <textarea placeholder="دیدگاه خود را بنویسید" className="createcommenttextarea" onChange={changecomment} />
+        <div style={{display:showspiner?'flex':'none'}}>
+        <Spiner/>
+        </div>
+        <button className="createcommentbutton" onClick={createcomment}>ثبت نظر</button>
+        </div>
+        )
+    }
+    export default CreateComment;

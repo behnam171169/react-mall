@@ -1,0 +1,32 @@
+
+.listname{
+display: flex;
+width: 100%;
+background-color: #2980b9;
+height: 100px;
+margin-top: 10px;
+align-items: center;
+justify-content: center;
+border:1px solid  #2980b9
+}
+.adminlistnamecontrol{
+    display: block;
+    width: 21%;
+}
+/* .orderbutton{
+    background-color: #2980b9; 
+    border:1px solid  #2980b9
+} */
+.mainlist{
+    display: flex;
+    flex-wrap: wrap;
+    /* flex-direction: column;
+    justify-content: space-around;
+    flex-wrap: wrap; */
+    justify-content: space-around;
+}
+.mainlistname{
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+}

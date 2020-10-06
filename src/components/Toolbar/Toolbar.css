@@ -1,0 +1,87 @@
+.Toolbar{
+    display: flex;
+    height: 50px;
+    width: 100%;
+    background-color: #2980b9;
+    border-bottom: 1px solid #cccccc;
+    position: fixed;
+    top: 0;
+    left: 0;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    padding: 0 20px;
+    box-sizing: border-box;
+    z-index:90 ;
+    direction: rtl;
+}
+.modallogin{
+display: flex;
+flex:0.4;
+flex-direction: row;
+justify-content: center;
+/* align-items: center; */
+}
+.toolbartext{
+    color: white;
+    text-decoration: none;
+}
+.buyscustomer{
+    display: flex;
+    flex:0.6;
+    flex-direction: row;
+    /* justify-content: center; */
+    /* align-items: center; */
+    }
+.customermanage{
+    display: flex;
+    flex-direction: row;
+    /* justify-content: space-between; */
+    align-items: center;
+    flex: 0.8;
+}
+/* .Toolbar nav{
+    height: 100%;
+}
+.helper{
+  height: 100%;  
+}
+
+@media(max-width:499px){
+.showNav{
+    display: none;
+}
+} */
+.sizecellphone{
+    display: flex;
+    align-items: center;
+    /* justify-content:space-between; */
+}
+.sizemin{
+    display: flex;
+    align-items: center;
+    flex: 0.2;
+ 
+}
+@media(max-width:750px){
+    .showNav{
+        display: none;
+    }
+
+}
+@media( min-width:600px){
+    .sizemin{
+        display: none;
+    }
+    
+}
+
+@media(max-width:601px){
+    .phone{
+        display: none;
+    }
+    .toolbartext{
+        font-size: 12px;
+    }
+
+}

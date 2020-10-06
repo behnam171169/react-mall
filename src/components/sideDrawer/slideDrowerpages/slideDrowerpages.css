@@ -1,0 +1,15 @@
+.mainslideDrawerpages{
+    height: 100%;
+}
+.closemenuicon{
+    display: flex;
+    flex-direction: row;
+justify-content: flex-end;
+    position: sticky;
+    top: 0px;
+    /* width: 50vw; */
+    height: 30px;
+    padding-top: 2vh;
+padding-bottom: 2vh;
+padding-left: 3vw;
+}

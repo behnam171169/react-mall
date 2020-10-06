@@ -1,0 +1,12 @@
+.townbutton{
+    padding: 5px ;
+    background-color: white;
+    border: 1px solid white;
+    width:100% ;
+    border-bottom: 1px solid gray;
+  }
+  .townbutton:hover{
+    background-color: green;
+    color: white;
+    border: 1px solid green;
+  }

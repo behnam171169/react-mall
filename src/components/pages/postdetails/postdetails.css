@@ -1,0 +1,185 @@
+.mainpostdetails{
+    display: flex;
+    direction: rtl;
+    background-color: white;
+}
+.postdetailimage{
+    width:30vw;
+    height:50vh;
+margin-left: 2vw;
+margin-right: 2vw;
+margin-top: 2vh;
+
+}
+.detailpost{
+    width: 40vw;
+    border: 1px solid rgba(255, 5, 181, 0.2);
+    /* background-color: rgba(255, 5, 181, 0.2); */
+    margin-top: 2vh;
+    margin-left: 1vw;
+    margin-right: 1vw;
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+    box-shadow:2px 2px 2px rgba(255, 5, 181, 0.2);
+    background-color: white;
+}
+.buypost{
+  width: 25vw; 
+  padding-top: 2vh; 
+  background-color: white;
+  margin-top: 2vh;
+  border: 1px solid rgba(255, 5, 181, 0.2);
+  padding: 10px; 
+     box-shadow:2px 2px 2px rgba(255, 5, 181, 0.2);
+
+}
+.buttonbuy{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 5vh;
+  width: 20vw;
+  background-color: green;
+  padding: 2vh;
+  border: 1px solid green;
+
+}
+.maintalk{
+  display: flex;
+  flex-direction: column;
+
+  align-items: center;
+  border: 1px solid gray;
+  width:80vw;
+  margin: 5vh auto;
+  background-color: white;
+/* background-color: indianred; */
+}
+.talk{
+  width: 79.3vw;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  background-color: gray;
+  border-bottom: 1px solid rgb(175, 174, 174);
+  padding: 5px;
+}
+.talktext{
+  padding: 10px;
+}
+.talkcreate{
+  padding: 5px;
+  text-decoration: none;
+  /* background-color:green ; */
+  color: brown;
+  font-weight: bold;
+}
+.comments{
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+border: 1px solid rgb(139, 139, 139);
+  align-items: flex-end;
+  
+/* background-color: rgb(206, 43, 43); */
+  margin-top: 2vh;
+  margin-bottom: 2vh;
+  background-color: white;
+}
+.commentname{
+  background-color: rgb(202, 200, 200);
+
+  /* padding: 1vh 2vw; */
+  width: 100%;
+  direction: rtl;
+}
+.commenttext{
+ margin: 1vh 2vw;
+ word-wrap:normal;
+}
+.maincomments{
+width: 75vw;
+margin-top: 3vh;
+}
+.admincommentdelet{
+  padding: 5px 10px;
+  background-color: red;
+  font-size: 20px;
+  margin: 5px 5px;
+border: 1px solid red;
+}
+.inputnumber{
+  text-align: center;
+  width: 3vw;
+  border: none;
+  border-bottom: 1px solid gray;
+}
+.changenumber{
+  display: flex;
+  justify-content: space-around;
+  width: 15vw;
+}
+@media screen and (max-width: 800px) {
+ .buttonbuy{
+   font-size: 20px;
+ }
+}
+  @media screen and (max-width: 800px) {
+    .mainpostdetails {
+flex-direction: column;
+align-items: center;
+    }
+    .postdetailimage{
+      width: 50vw;
+      height: 40vh;
+    }
+    .detailpost{
+      width: 60vw;
+    }
+    .buypost{
+      width: 60vw;
+    }
+    .buttonbuy{
+    width:50vw ;
+    margin-top: 5vh;
+  
+    }
+    .changenumber{
+      width:45vw ;
+    }
+    .inputnumber{
+      width: 6vw;
+    }
+  }
+  @media screen and (max-width: 499px) {
+    .mainpostdetails {
+flex-direction: column;
+align-items: center;
+margin-top: 0;
+    }
+    .postdetailimage{
+      width: 90vw;
+     
+    }
+    .detailpost{
+      width:90vw;
+margin-top: 0;
+    }
+    .buypost{
+      width: 90vw;
+      margin-top: 0;
+    
+    }
+    .buttonbuy{
+      width:90vw ;
+      margin-top: 5vh;
+    
+      }
+      .changenumber{
+        width:85vw ;
+      }
+      .inputnumber{
+        width: 10vw;
+      }
+  }

@@ -1,0 +1,261 @@
+.main{background: #eee;display:flex;justify-content: center;align-items: center;}
+/*General Menu Styling*/
+.mainnav{margin: 0 auto;width: 100vw;display: flex;justify-content: center;}
+li{list-style: none;}
+li Link{text-decoration:none;}
+.dropdown{z-index: 1;position: absolute; width: 150px;margin-top: -27px; opacity:0.3;visibility: hidden;transition: ease-out .35s;-moz-transition: ease-out .35;-webkit-transition: ease-out .35s;}
+.mainnav li{float: left;width: 14vw;background-color: #2980b9;border-left: 1px dotted #fff;padding-top: 12px;padding-bottom: 12px;text-align: center;}
+.mainnav li:first-child{border: none;}
+.mainnav li Link{ display: block;color: #fff;font-family: arial;text-align: center;text-decoration: none}
+.mainnav li:hover{background: #8646ac;transition: ease-in 0.35;-moz-transition: ease-in 0.35s;-webkit-transition: ease-in .35s;}
+.mainnav li:hover Link{color: #fff;transition: ease-in 0.15;-moz-transition: ease-in .15s;-webkit-transition: ease-in 0.15s;padding: 3px 3.1vw;}
+/*First Level*/
+.subs {left: -40px;position: relative;top: 38px;width: 15.3vw;border-left: none !important; border-bottom: 1px dotted #fff !important;}
+.subs:last-child{border: none !important;}
+.hassubs:hover .dropdown,.hassubs .hassubs:hover .dropdown{opacity: 1;visibility: visible; transition: ease-in .35s;-moz-transition: ease-in 5s;-webkit-transition: ease-in 0.35s;}
+.mainnav li:hover ul Link,.mainnav li:hover ul li ul li Link{color: white;}
+.mainnav li ul li:hover,.mainnav li ul li ul li:hover{background: #2ecc71;transition: ease-in-out 0.1;-moz-transition: ease-in-out 0.1s;-webkit-transition: ease-in-out 0.1s;padding: 11px 0.8vw;}
+.mainnav li ul li:hover Link,.mainnav li ul li ul li:hover Link{color: #fff;transition: ease-in-out 0.35;-moz-transition: ease-in-out 0.35s;-webkit-transition: ease-in-out 0.35s;}
+/*Second Level*/
+.hassubs .hassubs .dropdown .subs{left: 35px;position: relative;width: 165px;top: 0px;text-decoration: none;}
+.hassubs .hassubs .dropdown{position: absolute;width: 150px;left: -240px;top: 0px;opacity:0.4;visibility: hidden;transition: ease-out 0.35s;-moz-transition: ease-out 0.35s;-webkit-transition: ease-out 0.35s;}
+.licelphone{
+  padding: 10px 1vw;
+}
+.lipretty{
+    padding: 10px 0.45vw;
+  }
+  
+/* ----------------------- */
+
+/* .hassubscelphone{position: relative;width:14vw;top: 0px; }
+.dropdowncelphone{z-index: 1;position: absolute; width:100vw;top:0px; opacity:0.3;visibility: hidden;transition: ease-out .35s;-moz-transition: ease-out .35;-webkit-transition: ease-out .35s;}
+.hassubscelphone:hover .dropdowncelphone{visibility: visible; transition: ease-in .35s;-moz-transition: ease-in 5s;-webkit-transition: ease-in 0.35s;}
+.dropdowncelphonetext{
+  width: 20vw;
+  background-color: brown;
+} */
+
+/* .divcellphon{
+  
+  display:flex;
+justify-content: flex-start;
+align-items: flex-start;
+  width: 100vw;
+} */
+/* -------------------- */
+.dropdowncelphone {
+ 
+  display: inline-block;
+  width:14vw;
+
+}
+
+.dropdowncelphone-content {
+
+  display: none;
+  position: absolute;
+  background-color: red;
+/* width: 80vw; */
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  padding: 12px 10px;
+  z-index: 1;
+  right: 2vw;
+  left: 2vw;
+  padding-bottom: 4vh;
+  background: #c4cbcf;
+  margin-top: 0.5vh;
+
+}
+
+.dropdowncelphone:hover .dropdowncelphone-content {
+  display: block;
+  
+}
+.dropdowncelphonetext{
+  width: 15vw;
+
+position: 0px;
+padding-right: 0px;
+  padding-top: 1vh;
+  padding-bottom: 1vh;
+  text-decoration: none;
+/* text-decoration-color: #fff; */
+/* text-decoration-line: initial; */
+background-color:  #2980b9;
+margin: 3px 1vw;
+  /* border-bottom: 1px solid #fff; */
+}
+.dropdowncelphonetext:hover{
+  background-color: #2ecc71;
+}
+@media(max-width:600px){
+  .main{
+    display: none;
+  }
+}
+@media(max-width:910px){
+  .hassubs{
+   font-size: 10px;
+  }
+}
+@media(max-width:910px){
+  .dropdowncelphone{
+   font-size: 10px;
+  }
+}
+
+@media(max-width:910px){
+  .homepage{
+   font-size: 10px;
+  padding: 5px;
+  }
+}
+// <div class="main">
+//             <ul class="mainnav">
+//                 <li class="hassubs" ><Link style={styletext} href="#">لوازم جانبی دیجیتال</Link>
+                
+//                 <ul class="dropdown">
+//                         <li class="subs"><Link style={styletext} href="#">لوازم جانبی موبایل</Link></li>
+//                         <li class="subs"><Link style={styletext} href="#">گجت ها</Link>  </li>
+//                         <li class="subs"><Link style={styletext} href="#">تجهیزات جانبی</Link></li>
+//                     </ul>
+                
+                
+                
+//                 </li>
+//                 <li class="hassubs"><Link style={styletext} href="#">کامپیوتر و لپ تاپ</Link>
+                
+//                 <ul class="dropdown">
+//                         <li class="subs"><Link style={styletext}  href="#">قطعات کامپیوتر</Link></li>
+//                         <li class="subs"><Link style={styletext} href="#">لپ تاپ</Link></li>
+//                         <li class="subs"><Link style={styletext} href="#"> ماوس و کیبورد</Link></li>
+//                         <li class="subs"><Link style={styletext}  href="#">هارد</Link></li>
+//                         <li class="subs"><Link style={styletext} href="#">حافظه جانبی</Link></li>
+
+//                         {/* <li class="subs hassubs"><a href="#">Designing</a> */}
+//                             {/* <ul class="dropdown">
+//                                 <li class="subs hassubs"><a href="#">uuuuu</a>
+
+//                                 <ul class="dropdown">
+//                                 <li class="subs hassubs"><a href="#">Web Design</a>
+
+//                                 </li>
+//                                 <li class="subs"><a href="#">c</a></li>
+//                                 <li class="subs"><a href="#">c</a></li>
+//                             </ul>
+//                                 </li>
+                    
+//                             </ul> */}
+//                         {/* </li> */}
+//                     </ul>
+//                 </li>
+
+
+
+
+//                 <li class="hassubs"><Link style={styletext} href="#"><text   >آرایشی بهداشتی</text></Link>
+//                     <ul class="dropdown">
+//                         <li class="subs"><Link style={styletext} href="#">لوازم بهداشتی</Link></li>
+//                         <li class="subs"><Link style={styletext}  href="#">لوازم آرایشی</Link></li>
+                       
+
+//                         {/* <li class="subs hassubs"><a href="#">Designing</a> */}
+//                             {/* <ul class="dropdown">
+//                                 <li class="subs hassubs"><a href="#">uuuuu</a>
+
+//                                 <ul class="dropdown">
+//                                 <li class="subs hassubs"><a href="#">Web Design</a>
+
+//                                 </li>
+//                                 <li class="subs"><a href="#">c</a></li>
+//                                 <li class="subs"><a href="#">c</a></li>
+//                             </ul>
+//                                 </li>
+                    
+//                             </ul> */}
+//                         {/* </li> */}
+//                     </ul>
+//                 </li>
+//                 <li class="hassubs" ><Link style={styletext} href="#">لوازم خانگی</Link>
+                
+//                 <ul class="dropdown">
+//                         <li class="subs"><Link style={styletext} href="#" >صوتی و تصویری</Link></li>
+//                         <li class="subs"><Link style={styletext} href="#">آماده سازی غذا</Link></li>
+//                         <li class="subs"><Link style={styletext} href="#">تهیه و نگهداری نوشیدنی</Link></li>
+//                         <li class="subs"><Link style={styletext}  href="#">تهویه مطبوع</Link></li>
+//                         <li class="subs"><Link style={styletext} href="#">لوازم نظافت</Link></li>
+                      
+
+//                         {/* <li class="subs hassubs"><a href="#">Designing</a> */}
+//                             {/* <ul class="dropdown">
+//                                 <li class="subs hassubs"><a href="#">uuuuu</a>
+
+//                                 <ul class="dropdown">
+//                                 <li class="subs hassubs"><a href="#">Web Design</a>
+
+//                                 </li>
+//                                 <li class="subs"><a href="#">c</a></li>
+//                                 <li class="subs"><a href="#">c</a></li>
+//                             </ul>
+//                                 </li>
+                    
+//                             </ul> */}
+//                         {/* </li> */}
+//                     </ul>
+                
+          
+
+            
+//                 </li>
+
+
+                
+//                 <li class="dropdowncelphone"><Link style={styletext} href="#" ><text  > موبایل</text> </Link>
+//                     <div class="dropdowncelphone-content" >
+//                         <div style={{display:'flex',}}>
+//                           <Link className="dropdowncelphonetext" style={styletext} > سامسونگ</Link>
+//                           <Link className="dropdowncelphonetext"style={styletext} > الجی</Link>
+//                             <Link className="dropdowncelphonetext"style={styletext}  > اپل</Link>
+//                             <Link className="dropdowncelphonetext" style={styletext}>  هواوی</Link>
+//                             <Link className="dropdowncelphonetext" to="/HTC" style={styletext}> اچ تی سی</Link>
+//                            <Link className="dropdowncelphonetext" to="/Nokia" style={styletext}  >  نوکیا</Link>
+//                         </div>
+//                         <div style={{display:'flex',}}>
+//                             <Link className="dropdowncelphonetext" style={styletext} > ایسوس</Link>
+//                           <Link className="dropdowncelphonetext" style={styletext}> آلکاتل</Link>
+//                             <Link className="dropdowncelphonetext" style={styletext} > سونی</Link>
+//                             <Link className="dropdowncelphonetext" style={styletext} > ویلی فاکس</Link>
+//                             <Link className="dropdowncelphonetext" style={styletext} > فلای</Link>
+//                            <Link className="dropdowncelphonetext" style={styletext} > اسمارت</Link>
+//                         </div>
+//                         <div style={{display:'flex'}}>
+//                         <Link className="dropdowncelphonetext" style={styletext} >  پرشتیژیو</Link>
+//                         <Link className="dropdowncelphonetext" style={styletext} >  جی ال ایکس</Link>
+//                         <Link className="dropdowncelphonetext" style={styletext} > گوشی دل</Link>
+//                         <Link className="dropdowncelphonetext"  style={styletext}>  سونی اریکسون</Link>
+//                         <Link className="dropdowncelphonetext" style={styletext} >  گیگابایت</Link>
+//                         <Link className="dropdowncelphonetext"  style={styletext}>  موتورولا</Link>
+//                         </div>
+//                         <div style={{display:'flex',}}>
+//                            <Link className="dropdowncelphonetext"  style={styletext}> آمازون</Link>
+//                            <Link className="dropdowncelphonetext" style={styletext} > بلک بری</Link>
+//                             <Link className="dropdowncelphonetext" style={styletext}  > هیوندای</Link>
+//                             <Link className="dropdowncelphonetext"  style={styletext}>  کترپیلا</Link>
+//                     <Link className="dropdowncelphonetext" style={styletext}> ال ایکس</Link>
+//                           <Link className="dropdowncelphonetext" style={styletext}> نوکیا</Link>
+//                         </div>
+//                         {/* <li ><a href="#">گ</a>
+//                             <ul >
+//                                 <li ><a href="#">Head Office</a></li>
+//                                 <li ><a href="#">Registered Office</a></li>
+//                                 <li ><a href="#">Locate us</a></li>
+//                             </ul>
+//                         </li> */}
+//                         {/* <li class="subs"><a href="#">Phone</a></li> */}
+//                     </div>
+//                 </li>
+//                 <li  className="homepage"><Link style={styletext}  to="/">صفحه اصلی</Link></li>
+//             </ul>
+//             {/* <br style="clear: both;"> */}
+//         </div>

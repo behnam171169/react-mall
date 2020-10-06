@@ -1,0 +1,44 @@
+.mainadmincomment{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+}
+.admincomment{
+    width: 80%;
+    display: flex;
+    flex-direction: column;
+border: 1px solid gray;
+    align-items: flex-end;
+/* background-color: rgb(206, 43, 43); */
+    margin-top: 2vh;
+    margin-bottom: 2vh;
+
+/* overflow-y: scroll; */
+}
+.admincommentname{
+    background-color: rgb(175, 172, 172);
+
+    /* padding: 1vh 2vw; */
+    width: 100%;
+    direction: rtl;
+}
+.admincommenttext{
+   margin: 1vh 2vw;
+  
+}
+.admincommentdelet{
+    padding: 5px 10px;
+    background-color: red;
+    font-size: 20px;
+    margin: 5px 5px;
+
+}
+
+.admincommentedit{
+    padding: 5px 10px;
+    background-color: green;
+    font-size: 20px;
+    margin: 5px 5px;
+}

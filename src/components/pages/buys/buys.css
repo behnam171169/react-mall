@@ -1,0 +1,135 @@
+.mainbuys{
+    display: flex;
+    flex-direction: column;
+    direction: rtl;
+
+}
+.buydetail{
+display: flex;
+flex-direction: row;
+height: 20vh;
+background-color: white;
+margin-bottom: 1vh;
+}
+.buysImage{
+    width: 60%;
+    height: 100%;
+    
+}
+.mainimagebuy{
+    flex: 0.333;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.buystitle{
+    display: flex;
+    flex-direction: column;
+    flex: 0.333;
+
+justify-content: space-around;
+align-items: center;
+
+}
+.buytitletext{
+    display: block;
+    text-align: center;
+    /* margin-top: 5vh; */
+}
+.buyprice{
+    flex: 0.333;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+
+}
+.buynumber{
+    flex: 0.333;
+    display: flex;
+    /* flex-direction: row; */
+     /* color: rgb(9, 112, 26); */
+    align-items: center;
+    justify-content:space-around;
+}
+.inputnumberbuy{
+    padding: 2px;
+    border: 1px solid gray;
+    /* flex: 0.2; */
+    width: 50%;
+    text-align: center;
+}
+.spinner{
+    margin-top: 200;
+    position: static;
+
+    
+}
+.buysprices{
+    display: flex;
+    justify-content: space-around;
+    height: 10vh;
+    background-color: lightcoral;
+    align-items: center;
+    width: 80%;
+    margin: 2vh auto;
+}
+.buyspricesbutton{
+    width:15% ;
+    background-color: green;
+    border: 1px solid green;
+font-size: 20px;
+    padding-top: 1.5vh;
+    padding-bottom: 1.5vh;
+}
+.nologin{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  margin-top: 50px;
+  height: 100px;
+  background-color: tomato;
+}
+@media screen and (max-width: 700px) {
+    .buysImage{
+      width: 100%;
+    }
+    .buydetail{
+        height: 15vh;
+    }
+   }
+   @media screen and (max-width: 1000px) {
+    .buyspricesbutton{
+       width: 25%;
+    }
+   }
+   @media screen and (max-width: 800px) {
+    .buyspricesbutton{
+    
+        width: 30%;
+    }
+   }
+   @media screen and (max-width: 800px) {
+    .buyspricesbutton{
+    
+        width: 30%;
+    }
+   }
+   @media screen and (max-width: 550px) {
+    .buysprices{
+    display: flex;
+    flex-direction: column;
+height: 20vh;
+     width: 100%;
+    }
+    .buyspricesbutton{
+        width: 80%;
+     }
+   }
+  
+   @media screen and (max-height: 500px) {
+    .buydetail{
+height:30vh ;
+    }
+
+   }

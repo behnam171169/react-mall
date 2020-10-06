@@ -1,0 +1,13 @@
+
+    .spinercrona{
+position: absolute;
+z-index: 10;
+display: flex;
+justify-content: center;
+align-items: center;
+/* display: block;
+margin-top: 0px auto;
+width: 30%;
+top:0px ;
+left: 10%; */
+    }

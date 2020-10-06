@@ -1,0 +1,71 @@
+.mainlogin{
+    width: 50vw;; 
+    margin:10px auto;
+background-color: white;
+    border:1px solid rgb(117, 106, 106);
+    box-shadow:0 2px 3px #ccc;
+    text-align: center;
+    padding-bottom: 20px;
+    padding-top: 20px;
+    box-sizing: border-box;
+
+}
+.mainlogin input{
+    direction: ltr;
+    width: 90%;
+    padding: 25px;
+    margin-bottom:15px;
+    border-radius: 5px;
+    font-size: 20px;
+    border-radius: 10px;
+    border: 1px solid gray;
+    box-sizing: border-box;
+}
+.loginrecaptcha{
+ display: flex;
+ direction: rtl;
+align-items: flex-start;
+margin-right: 5%;
+}
+.loginerror{
+    display: flex;
+    justify-content: center;
+margin:5px auto;
+/* text-align: center; */
+    width: 90%;
+    background-color: rgb(218, 117, 117);
+    padding:10px;
+}
+.mainlogin button{
+    direction: rtl;
+    width: 90%;
+    padding: 25px;
+    /* margin-bottom:15px; */
+    margin: 15px auto;
+    border-radius: 5px;
+    font-size: 20px;
+    border-radius: 10px;
+    border: 1px solid gray;
+    display: block;
+    background-color: #00a8ff;
+    color: white;
+    box-sizing: border-box;
+}
+.checkbox{
+    display:flex;
+direction: rtl;
+}
+.cl{
+    justify-content:space-around;
+}
+.checkboxcontent{
+    display: inline-flex;
+}
+.checkboxinput{
+    width:10px;
+}
+@media(max-width:700px){
+    .mainlogin{
+        width: 80vw;
+    } 
+}

@@ -1,0 +1,37 @@
+.main{
+   display: flex; 
+   /* flex: 1; */
+   direction: rtl;
+   padding-top: 10px;
+   flex-direction: row;
+   flex-wrap: wrap;
+   justify-content: space-around;
+}
+.title{
+    font-size: 15px;
+}
+.logout{
+    flex: 30%;
+    max-width: 30%;
+    display: flex;
+  flex-direction: column;
+  justify-content: center;
+align-items: center; 
+/* background-color: red; */
+border: 1px solid rgb(120, 120, 226);
+margin-top: 10px;
+height: 100px;
+
+/* margin-left: 2px; */
+}
+@media(max-width:900px){
+    .logout{
+       flex: 45%;
+       max-width: 45%;
+    }
+}
+@media(max-width:600px){
+    .title{
+     font-size: 10px;
+    }
+}

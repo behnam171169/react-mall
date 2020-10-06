@@ -1,0 +1,95 @@
+.SideDrawer{
+    height: 100%;
+    width: 50vw;
+    position: fixed;
+    right: 0;
+    top: 0;
+    z-index: 200;
+    /* background-color:green; */
+    /* padding: 30px 15px; */
+    box-sizing: border-box;
+    transition: transform 0.3s ease-out;
+   
+}
+.SideDrawer2{
+height: 100%;
+    width: 100%;
+    position: fixed;
+   right: 0;
+   top: 0;
+ 
+    
+    z-index: 200;
+    background-color:thistle;
+    /* padding: 30px 15px; */
+    box-sizing: border-box;
+    transition: transform 0.3s ease-out;
+
+   
+}
+@media(min-width:600px){
+.SideDrawer{
+    display: none;
+ 
+}
+.SideDrawer2{
+    display: none;
+ 
+}
+}
+/* 
+@media(min-width:499px){
+    .SideDrawer{
+ 
+     width:25vw;
+    }
+    } */
+    
+.open{
+    transform: translate(0);
+    overflow:scroll;
+}
+.Close{
+    transform:translate(100%);
+     overflow:unset;
+}
+.open2{
+    transform: translate(0);
+    overflow:unset;
+}
+
+.Close2{
+    transform:translate(100%);
+    overflow:hidden;
+}
+.boxButton{
+    position: absolute;
+    bottom: 10%;
+    left:15%;
+}
+
+.Draweritems{
+/* height: 10vh; */
+display: block;
+/* flex:0.1; */
+/* text-align: center;
+margin: auto 0px; */
+padding-top: 5vh;
+padding-bottom: 5vh;
+background-color: #2980b9;
+color:#ffffff;
+border-bottom-style:solid;
+border-bottom-color: rgb(4, 14, 70);
+border-bottom-width: 1px;
+font-size: 10;
+text-align: center;
+writing-mode: 50vw;
+}
+.byt{
+    position: fixed;
+}
+.Draweritems:hover{
+    background-color: #0eb654;
+    font-size: 20;
+
+}
