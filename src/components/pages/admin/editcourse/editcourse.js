@@ -1,8 +1,9 @@
 import React, { Component,useState,useContext,useEffect } from 'react'
 import  './editcourse.css';
 import axios from 'axios';
-
+import {mainContext} from './../../../../context/mainContext';
 const Editcourse=(props)=>{
+
   useEffect(() => {
     const {id} = props.location.state;
     setid(id)
@@ -38,6 +39,7 @@ const [garantis,setGarantis]=useState('');
 const [numberinpuckets,setnumberinpuckets]=useState('');
 const [memorys,setMemorys]=useState('');
 const [weights, setweights] = useState('');
+
 const [id,setid]=useState('');
 
 

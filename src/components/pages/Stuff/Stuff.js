@@ -3,10 +3,12 @@ import axios from 'axios';
 import './Stuff.css';
 import Spiner from './../../spinner/spinner';
 import {Link} from 'react-router-dom';
+import {mainContext} from './../../../context/mainContext';
 const Stuff=(props)=>{
-    const admin=localStorage.getItem('admin')
-    const admin2=JSON.parse(admin);
+    // const admin=localStorage.getItem('admin')
+    // const admin2=JSON.parse(admin);
     const [data, setdata] = useState([])
+    const {admin}=useContext(mainContext)
     // console.log(props.location.state[0],'kkkkkk')
     const [showspiner,setShowspiner]=useState(false);
     useEffect(()=>{
@@ -71,7 +73,7 @@ return(
         </div> 
         </div>
         </Link>
-        <div style={{display:admin2 ?'flex':'none'}} className="mainfloweradmin" >
+        <div style={{display:admin ?'flex':'none'}} className="mainfloweradmin" >
         <Link className="adminedit" to={{
             pathname: '/admin/edit/courses',
             state: {
