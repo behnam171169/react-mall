@@ -4,6 +4,7 @@ import axios from 'axios';
 import {Link} from 'react-router-dom';
 import {mainContext} from './../../../context/mainContext';
 import {withRouter} from 'react-router-dom';
+import Swal from 'sweetalert2'
 const Adminmain=(props)=>{
   const {admin}=useContext(mainContext)
 const [titels, settitels] = useState('');
@@ -94,8 +95,13 @@ seterrors('لطفا دسته بندی را مشخص کنید')
       // const data = await response.json();
       // const status=await response.status;
       if(response.status==200){
-
-        seterrors(response.data.message)
+        Swal.fire({
+          title: response.data.message,
+          icon: 'success',
+          confirmButtonText: 'متوجه شدم',
+        })
+        
+        // seterrors(response.data.message)
       }else{
         seterrors('خطایی رخ داد')
       }

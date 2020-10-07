@@ -12,16 +12,13 @@ const Stuff=(props)=>{
     useEffect(()=>{
         setShowspiner(true)
     const  dataa=  [ props.location.state[0],props.location.state[1]]
-        
-   
-   
         const data=JSON.stringify(dataa)  
-  
         axios.get(`http://localhost:3000/allstuff/${dataa}`, { 
       
     })
     .then((response)=>{
         setShowspiner(false)
+        console.log(response,'hhh')
         if(response.status==200){
             setdata(response.data)
         }else if(response.status==400){

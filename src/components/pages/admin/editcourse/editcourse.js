@@ -120,13 +120,13 @@ const data=JSON.stringify(dataa)
       {/* <form className="createpost"  action="http://localhost:3000/admin/course/create" method="POST" enctype="multipart/form-data"> */}
       <div  className="editpost">
 
-    <text>{prices}</text>
+
        <h1>ویرایش پست</h1>
        <div className="error" style={{display:errors.length<1?'none':'flex'}}>
   
        </div>
        {/* <text > {editdata}</text> */}
-    <text>{prices}</text>
+
        <input defaultValue={titels} type="text" placeholder="عنوان پست را وارد کنید" className="inputs" onChange={title}/>
        <input defaultValue={prices} type="text" placeholder="قیمت را وارد کنید" className="inputs" onChange={price} name="price"  />
        <textarea  defaultValue={explains} type="text" placeholder="توضیحات "  className="inputs" onChange={explain} name="explain" >
