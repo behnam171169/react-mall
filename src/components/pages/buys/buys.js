@@ -2,16 +2,18 @@ import React, { Component,useContext,useEffect,useState } from 'react'
 import axios from 'axios';
 import Spinner from './../../spinner/spinner';
 import {mainContext} from './../../../context/mainContext';
+import {Stufflistcontext} from './../../../context/stufflistcontext';
 import { IconContext } from "react-icons";
 import {AiOutlineDelete } from "react-icons/ai";
 import { FaPlus,FaMinus } from "react-icons/fa";
+import Dropdown3 from './../../Dropdown/Dropdown3/Dropdown3'
 import './buys.css';
 const Buys=(props)=>{
    const {userid,login}=useContext(mainContext)
    const[buydata,setbuydata]=useState([]);
    const[sumprices,setsumprices]=useState('');
    const [showspinner,setshowspinner]=useState(false);
-   
+   const {changesearchbar,modal}=useContext(Stufflistcontext)
    
    
    const id=localStorage.getItem('user');
@@ -95,7 +97,9 @@ const  customer=()=>{
 return(
    
    <div>
-   
+                <div style={{opacity:modal?'0':'1',zIndex:1,marginTop:60}}  className="dropdownmenu">
+    <Dropdown3 /> 
+    </div>
    <div style={{display:login?'flex':'none'}}  className="mainbuys">
    <div style={{display:buydata.length<1?'flex':'none',marginTop:100,justifyContent:'center'}}>
    <text >سبدخرید شما خالیست</text>

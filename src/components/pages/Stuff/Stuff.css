@@ -9,6 +9,49 @@ margin-top: 1vh;
 
 
 }
+.mainsearch{
+  display: flex;
+  flex:1;
+
+  margin-top: 60px;
+
+ direction: rtl;
+}
+.mainsearchinput{
+ flex: 0.6;
+  display: flex;
+  justify-content: center;
+}
+.mainsearchinput input{
+  background-color: white;
+  border-top-right-radius: 0px;
+  border-bottom-right-radius: 0px;
+  border-right: none;
+  flex: 0.8;
+  padding: 5px 15px;
+border: 1px solid rgb(216, 211, 211);
+}
+
+.searchlogo{
+  flex: 0.4;
+  /* background-color: violet; */
+  /*  */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.iconsearch{
+  height: 38px;
+  background-color: thistle;
+
+  padding-top: 9px;
+  padding-bottom: 6px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-radius: 5px;
+  border-top-left-radius: 0px;
+  border-bottom-left-radius: 0px;
+   }
 .mainstuffcard{
 display: block;
 margin: 5px auto;
@@ -62,6 +105,10 @@ border-radius: 15px;
 /* border-radius: 15px; */
 margin-top: 8px;
 }
+.searchbar{
+  margin-top: 50px;
+  position: sticky;
+}
 .flowerprice{
 display:flex;
 justify-content: center;
@@ -90,6 +137,14 @@ margin: 1vh;
     .flowerImage{
       height: 20vh;
     }
-  
+    .mainsearchinput input{
+      flex: 0.9;
+    }
+    .mainsearchinput{
+      flex: 0.7;
+    }
+    .searchlogo{
+      flex: 0.3;
+    }
   }
  

@@ -4,7 +4,7 @@ import axios from 'axios';
 import {Link} from 'react-router-dom';
 import {mainContext} from './../../../context/mainContext';
 import {withRouter} from 'react-router-dom';
-import Swal from 'sweetalert2'
+import Swal from 'sweetalert2';
 const Adminmain=(props)=>{
   const {admin}=useContext(mainContext)
 const [titels, settitels] = useState('');

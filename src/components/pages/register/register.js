@@ -1,9 +1,11 @@
-import React, { Component,useState } from 'react'
+import React, { Component,useState ,useEffect,useContext} from 'react'
 import './register.css';
 import ReCAPTCHA from "react-google-recaptcha";
 import { Link } from 'react-router-dom';
 import {withRouter} from 'react-router-dom';
 import Spiner from './../../spinner/spinner';
+import {Stufflistcontext} from './../../../context/stufflistcontext';
+
 const Register=(props)=>{
   
   
@@ -14,6 +16,11 @@ const Register=(props)=>{
   const [errors,setErrors]=useState('');
   const [recaptcha,setRecaptcha]=useState(false);
   const [showspiner,setShowspiner]=useState(false);
+  const {changesearchbar}=useContext(Stufflistcontext)
+  useEffect(() => {
+    changesearchbar(false)
+ 
+  }, [])
   const gohome=()=>{
     
     props.history.push('/');

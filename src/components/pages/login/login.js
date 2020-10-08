@@ -1,8 +1,9 @@
-import React, { Component,useState,useContext } from 'react';
+import React, { Component,useState,useContext,useEffect } from 'react';
 import './login.css';
 import ReCAPTCHA from "react-google-recaptcha";
 import { Link } from 'react-router-dom';
 import Spiner from './../../spinner/spinner';
+import {Stufflistcontext} from './../../../context/stufflistcontext';
 const Login=(props)=>{
   const [username, setusername] = useState('');
   const [password, setpassword] = useState('');
@@ -10,6 +11,10 @@ const Login=(props)=>{
   const [recaptcha,setRecaptcha]=useState('');
   const [check,setcheck]=useState(false);
   const [showspiner,setShowspiner]=useState(false);
+  const {changesearchbar}=useContext(Stufflistcontext)
+  useEffect(() => {
+    changesearchbar(false)
+  }, [])
   const pass=(event)=>{
     setpassword(event.target.value)
   }

@@ -4,14 +4,17 @@ import './Stuff.css';
 import Spiner from './../../spinner/spinner';
 import {Link} from 'react-router-dom';
 import {mainContext} from './../../../context/mainContext';
+import {Stufflistcontext} from './../../../context/stufflistcontext';
+import Dropdown3 from './../../Dropdown/Dropdown3/Dropdown3'
+import { IconContext } from "react-icons";
+import { GoSearch  } from "react-icons/go";
 const Stuff=(props)=>{
-    // const admin=localStorage.getItem('admin')
-    // const admin2=JSON.parse(admin);
     const [data, setdata] = useState([])
     const {admin}=useContext(mainContext)
-    // console.log(props.location.state[0],'kkkkkk')
+    const {changesearchbar,modal}=useContext(Stufflistcontext)
     const [showspiner,setShowspiner]=useState(false);
     useEffect(()=>{
+        changesearchbar(true)
         setShowspiner(true)
     const  dataa=  [ props.location.state[0],props.location.state[1]]
         const data=JSON.stringify(dataa)  
@@ -51,6 +54,25 @@ return(
     <div style={{display:showspiner?'flex':'none'}}>
     <Spiner/>
     </div>
+    <div className="mainsearch">
+<div className="mainsearchinput">
+<div className="iconsearch">
+<IconContext.Provider
+      value={{ color: '#F79F1F', size: '30px'}}>
+ <GoSearch /> 
+    </IconContext.Provider>
+    </div>
+<input   type="text" className="searchinput" placeholder="جستجوی محصولات"/> 
+</div>
+<div className="searchlogo">
+<text style={{fontSize:25,color:'green'}}>به کالا</text>
+</div>
+    </div>
+
+<div style={{opacity:modal?'0':'1',zIndex:1}}  className="dropdownmenu">
+    <Dropdown3 /> 
+    </div>
+
     <div className="maincard">
     
     

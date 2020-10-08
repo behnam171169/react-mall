@@ -1,9 +1,12 @@
 import React, { Component,useEffect,useState,useContext } from 'react'
 import axios from 'axios';
 import Spinner from './../../spinner/spinner';
+import Dropdown3 from './../../Dropdown/Dropdown3/Dropdown3'
 import {mainContext} from './../../../context/mainContext';
+import {Stufflistcontext} from './../../../context/stufflistcontext';
 const Customerbuys=(props)=>{
     const {login}=useContext(mainContext)
+    const {changesearchbar,modal}=useContext(Stufflistcontext)
     const [showspinner,setshowspinner]=useState(false);
     const[buydata,setbuydata]=useState([]);
     const id=localStorage.getItem('user')
@@ -23,6 +26,9 @@ const Customerbuys=(props)=>{
     },[]);
     return(
         <div>
+                         <div style={{opacity:modal?'0':'1',zIndex:1,marginTop:60}}  className="dropdownmenu">
+    <Dropdown3 /> 
+    </div>
             <div style={{display:login?'none':'flex',justifyContent:'center',alignItems:'center',marginTop:50}}>
       <text>ابتدا به حساب کاربری خود وارد شوید</text>
                         </div>

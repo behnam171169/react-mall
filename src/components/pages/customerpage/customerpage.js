@@ -7,11 +7,14 @@ import {IoIosBasket } from "react-icons/io";
 import {MdShoppingCart } from "react-icons/md";
 import {withRouter} from 'react-router-dom';
 import {mainContext} from './../../../context/mainContext';
-
+import {Stufflistcontext} from './../../../context/stufflistcontext';
+import Dropdown3 from './../../Dropdown/Dropdown3/Dropdown3'
 const Customerpage=(props)=>{
       const {login}=useContext(mainContext)
-     
-     
+      const {changesearchbar,modal}=useContext(Stufflistcontext)
+     useEffect(()=>{
+      changesearchbar(false)
+     })
       const logout=()=>{
             localStorage.removeItem('token')
             
@@ -31,9 +34,13 @@ const Customerpage=(props)=>{
       }
       return(
             <div>
-                  <div style={{display:login?'none':'flex',justifyContent:'center',alignItems:'center',marginTop:20}}>
+                  <div style={{opacity:modal?'0':'1',zIndex:1,marginTop:60}}  className="dropdownmenu">
+    <Dropdown3 /> 
+    </div>
+                  <div style={{display:login?'none':'flex',justifyContent:'center',alignItems:'center',marginTop:100}}>
 <text>ابتدا به حساب کاربری خود وارد شوید</text>
                   </div>
+
             <div style={{display:login?'flex':'none'}} className="main"> 
             
             

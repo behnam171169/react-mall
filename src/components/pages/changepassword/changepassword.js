@@ -1,15 +1,20 @@
-import React, {useState } from 'react';
+import React, {useState,useContext,useEffect } from 'react';
 import './changepassword.css';
 import ReCAPTCHA from "react-google-recaptcha";
 import {withRouter} from 'react-router-dom';
 import Spiner from './../../spinner/spinner';
+import {Stufflistcontext} from './../../../context/stufflistcontext';
 const Changepassword=(props)=>{
   const [username, setusername] = useState('');
   const [password, setpassword] = useState('');
   const [errors, seterrors] = useState('');
   const [recaptcha,setRecaptcha]=useState('');
   const [showspiner,setShowspiner]=useState(false);
+  const {changesearchbar}=useContext(Stufflistcontext)
   const url=window.location.pathname;
+  useEffect(() => {
+    changesearchbar(false)
+  }, [])
   const curenturl= url.slice(16);
   const mail=(event)=>{
     setusername(event.target.value)
@@ -85,7 +90,7 @@ const Changepassword=(props)=>{
       
       <input type="email" placeholder="ایمیل" onChange={mail} />
       <input type="password" placeholder="پسوورد" onChange={pass} />
-      <div className="recaptcha">
+      <div className="hangepasscarecaptcha">
       <ReCAPTCHA
       hl={"fa"}
       sitekey="6LcdfOUUAAAAAFGXuwyP37TpZSyQpHHGxE28WGYo"

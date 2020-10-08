@@ -2,7 +2,6 @@ import React,{useEffect,useState,useContext} from 'react';
 import {BrowserRouter,Route,Redirect,Switch} from 'react-router-dom';
 import {Link} from 'react-router-dom';
 import Toolbar from '../src/components/Toolbar/Toolbar';
-import Searchbar from './components/searchbar/searchbar';
 import  Adminmain from './components/pages/admin/Adminmain';
 import Dropdown3 from './components/Dropdown/Dropdown3/Dropdown3';
 import Slideshow from '../src/components/slideshow/slideshow';
@@ -36,24 +35,18 @@ import Courses from './components/pages/admin/courses/courses';
    import {mainContext} from './context/mainContext';
    import {Stufflistcontext} from './context/stufflistcontext';
 function App() {
- 
-  // const {admin}=useContext(mainContext)
-  // const admin2=JSON.parse(admin);
   const zarinpalAuthority=  localStorage.getItem('zarinpalAuthority') 
   const {modal,changemodal}=useContext(Stufflistcontext)
-// const admin2=localStorage.getItem('admin')
   return (
     <BrowserRouter >
     <MainContextProvider>
    
 <div className="App">
     <Toolbar/>
-<div className="searchBar"> 
-<Searchbar />
-</div> 
-<div style={{opacity:modal?'0':'1',zIndex:1}} className="dropdownmenu">
+
+{/* <div style={{opacity:modal?'0':'1',zIndex:1}} className="dropdownmenu">
     <Dropdown3 /> 
-    </div>
+    </div> */}
 
  {/* <div  class="vertical-menu">
         <Link to="/admin/courses" class="active">دوره ها</Link>

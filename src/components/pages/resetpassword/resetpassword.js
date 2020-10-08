@@ -4,16 +4,20 @@ import ReCAPTCHA from "react-google-recaptcha";
 import Spiner from './../../spinner/spinner';
 import {withRouter} from 'react-router-dom';
 import {mainContext} from './../../../context/mainContext';
-
+import {Stufflistcontext} from './../../../context/stufflistcontext';
+import Dropdown3 from './../../Dropdown/Dropdown3/Dropdown3'
 import Swal from 'sweetalert2'
 const Resetpassword=(props)=>{
+  const {changesearchbar,modal}=useContext(Stufflistcontext)
   const {login}=useContext(mainContext)
   const [username, setusername] = useState('');
   const [errors, seterrors] = useState('');
 
   const [recaptcha,setRecaptcha]=useState(false);
   const [showspiner,setShowspiner]=useState(false);
-  
+  useEffect(()=>{
+    changesearchbar(false)
+  })
   const mail=(event)=>{
     setusername(event.target.value)
   }
@@ -83,10 +87,13 @@ const Resetpassword=(props)=>{
     }
     return(
       <div>
-      <div style={{display:login?'none':'flex',justifyContent:'center',alignItems:'center',marginTop:20}}>
+                                    <div style={{opacity:modal?'0':'1',zIndex:1,marginTop:60}}  className="dropdownmenu">
+    <Dropdown3 /> 
+    </div>
+      {/* <div style={{display:login?'none':'flex',justifyContent:'center',alignItems:'center',marginTop:20}}>
       <text>ابتدا به حساب کاربری خود وارد شوید</text>
-                        </div>
-      <div style={{display:login?'block':'none'}} className="mainreset">
+                        </div> */}
+      <div className="mainreset">
       <div className="errorresetpassword" style={{display:errors.length<1?'none':'',}}>
       {errors}
       </div>

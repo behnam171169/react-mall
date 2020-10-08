@@ -5,6 +5,8 @@ import axios from 'axios';
 import Spiner from './../../spinner/spinner';
 import {withRouter} from 'react-router-dom';
 import {mainContext} from './../../../context/mainContext';
+import {Stufflistcontext} from './../../../context/stufflistcontext';
+import Dropdown3 from './../../Dropdown/Dropdown3/Dropdown3'
 const Editprofile=(props)=>{
 
     const {login}=useContext(mainContext)
@@ -13,9 +15,10 @@ const Editprofile=(props)=>{
     const [username, setusername] = useState('');
     const [showspiner,setShowspiner]=useState(false);
    const [errors,setErrors]=useState('');
+   const {changesearchbar,modal}=useContext(Stufflistcontext)
    const id=localStorage.getItem('user')
     useEffect(()=>{
- 
+      changesearchbar(false)
         axios.get(`http://localhost:3000/edietprofile/${id}`, { 
         })
         .then((response)=>{
@@ -77,6 +80,9 @@ if(response.status==200){
    }
     return(
       <div>
+                              <div style={{opacity:modal?'0':'1',zIndex:1,marginTop:60}}  className="dropdownmenu">
+    <Dropdown3 /> 
+    </div>
       <div style={{display:login?'none':'flex',justifyContent:'center',alignItems:'center',marginTop:50}}>
       <text>ابتدا به حساب کاربری خود وارد شوید</text>
                         </div>
