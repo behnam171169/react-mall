@@ -33,6 +33,18 @@ justify-content: center;
     /* justify-content: center; */
     /* align-items: center; */
     }
+    .loginbuttonmax{
+        display: flex;
+        flex:0.6;
+        flex-direction: row;
+    }
+    .loginbuttonmin{
+        display: flex;
+        flex:0.6;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+    }
 .customermanage{
     display: flex;
     flex-direction: row;
@@ -69,19 +81,30 @@ justify-content: center;
     }
 
 }
-@media( min-width:600px){
+@media( min-width:601px){
     .sizemin{
         display: none;
     }
-    
+ .loginbuttonmin{
+     opacity: 0;
+ }
 }
 
 @media(max-width:601px){
     .phone{
         display: none;
     }
+   
+    .loginbuttonmax{
+        position: absolute;
+    opacity: 0;
+    z-index: -50;
+    }
+ 
+
+}
+@media(max-width:700px){
     .toolbartext{
         font-size: 12px;
     }
-
 }

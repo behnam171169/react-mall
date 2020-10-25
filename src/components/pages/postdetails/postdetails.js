@@ -111,8 +111,6 @@ return(
   <div style={{display:'flex',flexDirection:'column'}}>
 
   <div className="mainpostdetails">
-  
-  
   <img src="https://www.beytoote.com/images/stories/housekeeping/hou16389.jpg" className="postdetailimage" />
   <div className="detailpost">
   <div style={{display:'flex'}}>
@@ -141,7 +139,7 @@ return(
   
   </div>
   <div style={{display:'flex',flexDirection:'column',alignItems:'center'}}>
-  <div className="changenumber" >
+  <div style={{display:props.location.state.count>=1?'flex':'none'}} className="changenumber" >
   <text>تعداد:</text>
   
   <IconContext.Provider
@@ -154,7 +152,8 @@ return(
   <FaMinus   onClick={subtractnumber}/> 
   </IconContext.Provider>
   </div>
-  <button onClick={buy} className="buttonbuy"><text>{buyicon}</text>افزودن به سبد خرید</button>
+  
+  <button style={{display:props.location.state.count>=1?'flex':'none'}} onClick={buy} className="buttonbuy"><text>{buyicon}</text>افزودن به سبد خرید</button>
   </div>
   </div>
   

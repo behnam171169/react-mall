@@ -7,6 +7,7 @@ import { IoMdMenu,IoMdPerson } from "react-icons/io";
 import {MdShoppingCart } from "react-icons/md";
 import Modal from '../Modal/Modal';
 import {mainContext} from './../../context/mainContext';
+import {withRouter} from 'react-router-dom';
 import { Link } from 'react-router-dom';
 import {Stufflistcontext} from './../../context/stufflistcontext';
 const Toolbar=(props)=>{
@@ -19,6 +20,7 @@ const Toolbar=(props)=>{
     
     changemodal()
   }
+
   const closemodal=()=>{
     setShowmodal(false)
   }
@@ -67,14 +69,20 @@ const Toolbar=(props)=>{
     
     </Link>
     {/* ------------------------- */}
-    <Link onClick={()=>loginregister()}  style={{display:login?'none':'flex',textDecoration:'none'}} className="buyscustomer"  >
+    <Link onClick={()=>loginregister()}  style={{display:login?'none':'flex',textDecoration:'none'}} className="loginbuttonmax"  >
     <IconContext.Provider
     value={{ color: '#ffffff', size: '25px' }}>
     <span > <IoMdPerson /></span>
     </IconContext.Provider>
-    <span className="toolbartext">ثبت نام ورود</span>
+    <span className="toolbartext">ثبت نام/ ورود</span>
     </Link>
-    
+    <Link to="/login"  style={{display:login?'none':'flex',textDecoration:'none'}} className="loginbuttonmin"  >
+    <IconContext.Provider
+    value={{ color: '#ffffff', size: '25px' }}>
+    <span > <IoMdPerson /></span>
+    </IconContext.Provider>
+    <span className="toolbartext">ثبت نام/ ورود</span>
+    </Link>
     
     {/* -------------------------------------- */}
     <Link to="/admin"  style={{display:admin?'flex':'none',textDecoration:'none'}} className="buyscustomer" >
@@ -115,4 +123,4 @@ const Toolbar=(props)=>{
     
     )
   }
-  export default Toolbar;
+  export default withRouter(Toolbar);

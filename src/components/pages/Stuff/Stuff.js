@@ -23,7 +23,7 @@ const Stuff=(props)=>{
     })
     .then((response)=>{
         setShowspiner(false)
-        console.log(response,'hhh')
+        console.log(response.data,'hhh')
         if(response.status==200){
             setdata(response.data)
         }else if(response.status==400){
@@ -51,20 +51,20 @@ const deletedata=(id)=>{
 
 return(
     <React.Fragment>
-    <div style={{display:showspiner?'flex':'none'}}>
+    <div style={{display:showspiner?'flex':'none',marginTop:50}}>
     <Spiner/>
     </div>
-    <div className="mainsearch">
-<div className="mainsearchinput">
-<div className="iconsearch">
+    <div className="stuffmainsearch">
+<div className="stuffmainsearchinput">
+<div className="stufficonsearch">
 <IconContext.Provider
       value={{ color: '#F79F1F', size: '30px'}}>
  <GoSearch /> 
     </IconContext.Provider>
     </div>
-<input   type="text" className="searchinput" placeholder="جستجوی محصولات"/> 
+<input   type="text" className="stuffsearchinput" placeholder="جستجوی محصولات"/> 
 </div>
-<div className="searchlogo">
+<div className="stuffsearchlogo">
 <text style={{fontSize:25,color:'green'}}>به کالا</text>
 </div>
     </div>
@@ -78,21 +78,32 @@ return(
     
     {data.map((dataa)=>
         <div className="flowercards">
-        <Link to={{
-            pathname: '/postdetails',
+        <Link
+        style={{textDecoration:'none'}}
+        
+         to={{
+             
+            pathname:'/postdetails',
             state: {
-                id:dataa._id
+                id:dataa._id,
+                count:dataa.buyCount
             }
-        }}>
+        }}
+  
+        >
           <div className="mainstuffcard">
         <img src="https://www.beytoote.com/images/stories/housekeeping/hou16389.jpg" className="flowerImage" />
-        <div style={{display:'flex',alignItems:'center',flexDirection:'column'}}>
+        <div style={{display:(dataa.buyCount) >=1?'flex':'none',alignItems:'center',flexDirection:'column'}}>
         <text >{dataa.title}</text>
         <div className="flowerprice">
         <text style={{color:'#009432'}}>تومان</text>
         <text style={{color:'#009432'}}>{dataa.prices}</text>
         </div> 
         </div> 
+        <div style={{display:(dataa.buyCount)==0?'flex':'none',
+        alignItems:'center',flexDirection:'column',marginTop:5,marginBottom:10}}>
+            <text>در انبار موجود نیست</text>
+        </div>
         </div>
         </Link>
         <div style={{display:admin ?'flex':'none'}} className="mainfloweradmin" >

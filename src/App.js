@@ -17,6 +17,7 @@ import Courses from './components/pages/admin/courses/courses';
  import Changepassword from './components/pages/changepassword/changepassword';
  import Editcourse from './components/pages/admin/editcourse/editcourse';
  import  MainContextProvider from  './context/mainContext';
+ import TownscontextProvider from './context/townscontext';
  import StufflistcontextProvider from './context/stufflistcontext';
  import Stuff from './components/pages/Stuff/Stuff';
    import Postdetails from './components/pages/postdetails/postdetails';
@@ -31,6 +32,10 @@ import Courses from './components/pages/admin/courses/courses';
    import Editprofile from './components/pages/editprofile/editprofile';
    import Orders from './components/pages/orders/orders';
    import Orderdetail from './components/pages/orders/orderdetail/orderdetail';
+   import Codetaeed from './components/pages/register/codetaeed/codetaeed';
+   import Mycourses from './components/pages/admin/mycourse/mycourse';
+   import Question from './components/pages/Question/Question';
+   import AdminQuestion from './components/pages/admin/question/question';
    import './App.css';
    import {mainContext} from './context/mainContext';
    import {Stufflistcontext} from './context/stufflistcontext';
@@ -39,8 +44,9 @@ function App() {
   const {modal,changemodal}=useContext(Stufflistcontext)
   return (
     <BrowserRouter >
+     <TownscontextProvider>
     <MainContextProvider>
-   
+  
 <div className="App">
     <Toolbar/>
 
@@ -83,11 +89,17 @@ function App() {
       <Route path="/editprofile" exact component={Editprofile} />
       <Route path="/admin/Orders" exact component={Orders} />
       <Route path="/admin/Orderdetail" exact component={Orderdetail} />
+      <Route path="/register/Codetaeed" exact component={Codetaeed} />
+      <Route path="/admin/mycourse" exact component={Mycourses} />
+      <Route path="/Question" exact component={Question} />
+
+      <Route path="/AdminQuestion" exact component={AdminQuestion} />
     <Route path="/https://www.zarinpal.com/pg/StartPay" exact component={() => <Redirect to="https://www.zarinpal.com/pg/StartPay/" />}  />
     </div>
     </div>
-
+    
     </MainContextProvider>
+    </TownscontextProvider>
     </BrowserRouter>
   );
 }

@@ -5,6 +5,7 @@ import {Link} from 'react-router-dom';
 import {mainContext} from './../../../context/mainContext';
 import {withRouter} from 'react-router-dom';
 import Swal from 'sweetalert2';
+
 const Adminmain=(props)=>{
   const {admin}=useContext(mainContext)
 const [titels, settitels] = useState('');
@@ -19,7 +20,7 @@ const [countrys,setCountrys]=useState('');
 const [garantis,setGarantis]=useState('');
 const [numberinpuckets,setnumberinpuckets]=useState('');
 const [memorys,setMemorys]=useState('');
-
+const userid=localStorage.getItem('user');
 const memory=(event)=>{
 setMemorys(event.target.value)
 }
@@ -52,7 +53,7 @@ const select=(event)=>{
 }
 const selectfile=(event)=>{
   setimages(event.target.files[0])
-
+// console.log(event.target.files,'ddd')
 }
  const color=(event)=>{
 setColors(event.target.value)
@@ -89,6 +90,7 @@ seterrors('لطفا دسته بندی را مشخص کنید')
     Images.append('garantis',garantis);
     Images.append('numberinpuckets',numberinpuckets);
     Images.append('memorys',memorys);
+    Images.append('user',userid);
     axios.post('http://localhost:3000/admin/course/create',Images, { 
   
     }).then((response)=>{
@@ -112,11 +114,19 @@ seterrors('لطفا دسته بندی را مشخص کنید')
 
 // }
 }
-    return(
+ const sendmessage=()=>{
+  axios.post('http://localhost:3000/auth/sendmessage', { 
+  })
+  .then((response)=>{
+ 
+  })
+ }
+     return(
       <div>
         <div style={{display:admin?'none':'flex',justifyContent:'center',alignItems:'center',marginTop:25}}>
 <text>شما مدیر سایت نیستید</text>
         </div>
+        
       <div style={{display:admin?'flex':'none'}} className="mainpanel">
      
        
@@ -125,6 +135,8 @@ seterrors('لطفا دسته بندی را مشخص کنید')
         <Link to="/admin/Admincomments" class="active">نظرات</Link>
         
         <Link to="/admin/Orders" class="active">سفارش ها</Link>
+        <Link to="/admin/mycourse" class="active">پست های من</Link>
+
         
       
       </div> 
@@ -138,7 +150,7 @@ seterrors('لطفا دسته بندی را مشخص کنید')
        <text > {errors}</text>
        </div>
      
-      
+       <button onClick={()=>sendmessage()}>oooo</button>
        <input type="text" placeholder="عنوان پست " className="inputs" onChange={title}/>
        <input type="text" placeholder="قیمت" className="inputs" onChange={price} name="price"  />
        <input type="text" placeholder="وزن به گرم" className="inputs" onChange={weight} />

@@ -15,8 +15,7 @@ const HomePage=()=>{
     const {modal,changemodal}=useContext(Stufflistcontext)
     const [showspiner,setShowspiner]=useState(false);
     const [data, setdata] = useState([])
-    const[opacittytext,Setopacittytext]=useState(0.5)
-    const[textcolor,Settextcolor]=useState('#27ae60')
+    const [searchtext, setSerchtext] = useState('')
     // useEffect(() => {
     //     let interval = setInterval(() => {
     //         if(opacittytext==0.5){
@@ -34,12 +33,27 @@ const HomePage=()=>{
     //         clearInterval(interval);
     //     };
     // });
+    const serchdata=(event)=>{
+  
+        // setSerchtext(e.target.value)
+        const itemData=data.filter((item)=>{
+            const itemDataa=item.title;
+            const textData=event.target.value;
+            return itemDataa.indexOf(textData)>-1
+          
+    })
+    
+    setdata(itemData)
+    setSerchtext(event.target.value)
+    // setSerchtext(e.target.value)
+    
+    }
     useEffect(()=>{
         axios.get('http://localhost:3000/all', { 
         
     }) .then((response)=>{
         setShowspiner(false)
-        console.log(response,'hhh')
+        console.log(response.data,'hhh')
         if(response.status==200){
             setdata(response.data)
         }else if(response.status==400){
@@ -51,7 +65,9 @@ const HomePage=()=>{
         }  
     }
     )  
-})
+},[])
+console.log(data,'fffff')
+
 return(
     <div>   
 
@@ -63,15 +79,17 @@ return(
  <GoSearch /> 
     </IconContext.Provider>
     </div>
-<input   type="text" className="searchinput" placeholder="جستجوی محصولات"/> 
+<input  value={searchtext} name="searchdata" type="text" className="searchinput" placeholder="جستجوی محصولات"  onChange={(event)=>serchdata(event)}/> 
 </div>
 <div className="searchlogo">
 <text style={{fontSize:25,color:'green'}}>به کالا</text>
 </div>
+
     </div>
     <div style={{opacity:modal?'0':'1',zIndex:1}}  className="dropdownmenu">
     <Dropdown3 /> 
     </div>
+
     <div style={{display:'flex',justifyContent:'center',alignItems:'center'}}>
     
     { <Slideshow /> }

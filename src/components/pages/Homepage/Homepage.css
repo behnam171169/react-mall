@@ -80,10 +80,10 @@ left: 10%; */
     /* border-radius: 15px; */
     margin-top: 8px;
     }
-    .searchbar{
+    /* .searchbar{
       margin-top: 50px;
       position: sticky;
-    }
+    } */
     .flowerprice{
     display:flex;
     justify-content: center;
@@ -93,23 +93,21 @@ left: 10%; */
         transform: scale(1.05);
     }
     
-.mainsearch{
-  display: flex;
-  }
-  .search{
+
+  /* .search{
     display: flex;
     flex:0.7;
     justify-content: center;
     align-items: center;
-    /* background-color: red; */
+   
   }
    .searchBartext{
   flex: 0.3;
   justify-content: center;
      display: flex;
      align-items: center;
-      }
-      .maininputicon{
+      } */
+      /* .maininputicon{
         display: flex;
         flex: 0.7;
        
@@ -119,11 +117,11 @@ left: 10%; */
    font-weight: bold;
    margin: 20px;
   
-      }
+      } */
       .mainsearch{
         display: flex;
         flex:1;
-      
+     
         margin-top: 60px;
       
        direction: rtl;
@@ -132,6 +130,7 @@ left: 10%; */
        flex: 0.6;
         display: flex;
         justify-content: center;
+       
       }
       .mainsearchinput input{
         background-color: white;

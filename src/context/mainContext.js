@@ -6,18 +6,11 @@ const MainContextProvider=(props)=>{
  const [admin, setadmin] = useState(false);
  const[username,setusername]=useState('');
  const [userid, setuserid] = useState('');
- const [customertowns, setcustomertowns] = useState('استان');
- const [customercity, setcustomercity] = useState('شهر');
- const[showtown,setshowtown]=useState(false);
- const[showcity,setshowcity]=useState(false);
-  // const checkadmin=localStorage.getItem('admin');
+ const [coordinate,setCordinate]=useState('')
   const token=localStorage.getItem('token');
-  // const user=localStorage.getItem('user');
-  // console.log(token,'ppppppp')
+
   useEffect(()=>{
-    // settoken(localStorage.getItem('token'))
-    // setadmin(checkadmin)
-    // setuserid(user)
+
     fetch('http://localhost:3000/auth/login/token',{
       method:'POST',
       headers:{
@@ -41,23 +34,11 @@ const MainContextProvider=(props)=>{
     }
  })},[])
 
-// console.log(admin,'yyyyyy')
-  const towns=(text)=>{
-setcustomertowns(text)
-setshowtown(!showtown)
-  }
-  const citys=(text)=>{
-    setcustomercity(text)
-    setshowcity(!showcity)
-      }
-    const  show=()=>{
-      setshowtown(false)
-      setshowcity(false)
-    }
- 
+ const changecoordinate=(text)=>{
+setCordinate(text)
+ }
     return(
-        <mainContext.Provider value={{login,username,admin,userid,towns,
-        customertowns,showtown,customercity,showcity,citys,show
+        <mainContext.Provider value={{login,username,admin,userid,changecoordinate,coordinate
         }}>
           {props.children}
         </mainContext.Provider>

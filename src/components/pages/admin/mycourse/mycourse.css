@@ -1,0 +1,104 @@
+.mycourses{
+    display:flex;
+ flex-wrap: wrap;
+    justify-content: center;
+margin-top: 100px;
+  
+    flex-direction: row;
+width: 100%;
+
+}
+
+.mainmycourseadmin{
+  display: flex; 
+  flex-direction: row;
+  justify-content: space-between;
+
+}
+.adminmycourseedit{
+  width: 50%;
+  height:20px;
+  background-color: green;
+  border: 1px solid black;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-decoration: none;
+  color: black;
+  padding-bottom: 1vh;
+}
+.adminok{
+  width: 100%;
+  height: 7vh;
+  background-color: blue;
+  color: white;
+  border: 1px solid black;
+  border-top: none;
+  text-decoration: none;
+}
+.adminmycoursedlete{
+  width: 50%;
+  padding: 13px 2px;
+  height:20px;
+  background-color: red;
+  border: 1px solid black;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-decoration: none;
+  color: black;
+}
+.coursescards{
+  overflow:hidden;
+  display: flex;
+  flex-direction: column;
+justify-content: center;
+
+margin-bottom: 10px;
+ /* margin-left: 10px; */
+ margin-right: 2vw;
+    width:30%;
+/* height: 40vh; */
+background-color: white;
+
+}
+.coursesImage{
+     transition:transform 1s ;
+    width:100%;
+    height:30vh;
+margin-bottom: 1vh;
+overflow: hidden;
+}
+.price{
+display:flex;
+justify-content: center;
+margin: 1vh;
+}
+.detail{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.coursesImage:hover {
+    transform: scale(1.05);
+}
+
+@media screen and (max-width: 950px) {
+    .coursescards {
+      width: 45%;
+    }
+   
+  }
+  @media screen and (max-width:800px) {
+    .coursescards {
+      width: 44%;
+    }
+   
+  }
+  @media screen and (max-width:650px) {
+    .coursescards {
+      width: 80%;
+    }
+  
+  }
+ 

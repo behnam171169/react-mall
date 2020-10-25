@@ -1,29 +1,30 @@
 import React, { Component,useState,useContext } from 'react';
 import './city.css';
 import {mainContext} from './../../../context/mainContext';
-import Ilam from './allcity/ilam/ilam';
+import {Townscontext} from './../../../context/townscontext';
+
 const City=()=>{
-    const {customertowns}=useContext(mainContext)
-   if(customertowns=='ایلام'){
-    return(
-        <div>
-<Ilam />
-        </div>
-  )
-   }else if(customertowns=='تهران') {
-       return(
-           <text>kjk</text>
-       )
-   }else{
-       return(
-           <text>
-               kkkkkk
-           </text>
-       )
-   }
-   
-       
-   
-   
+    const {customertowns,provins,citys}=useContext(Townscontext)
+    
+    const namecity=(text)=>{
+        citys(text)
+      }
+      
+   return(
+   <div>
+   {customertowns=='استان'? 
+        <text>ابتدا استان را انتخاب کنید</text>
+:provins.map((data)=>data.town==customertowns?
+    data.city.map((dataa)=>
+        <button onClick={()=>namecity(dataa)}  className="citybutton">{dataa}</button> 
+    )
+:null)}
+</div>
+)
 }
+      
+   
+   
+   
+ 
 export default City;

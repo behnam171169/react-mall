@@ -1,0 +1,47 @@
+.mainmap{
+    width: 50vw;
+    height:70vh;
+    /* display: block;
+    margin: 5px auto; */
+    display: flex;
+    /* justify-content: space-between; */
+    flex-direction: column;
+    align-items: center;
+    margin-top: 10px;
+}
+.mapbutton{
+    background-color: green;
+    color: white;
+    border: 1px solid green;
+    padding: 10px 10px;
+margin-top: 10px;
+
+
+}
+.setlocation{
+ display: flex;
+ justify-content: space-between;
+ align-items: center;
+
+
+}
+.setlocationtext{
+   color: black;
+ /* justify-content: flex-start; */
+}
+.continubuy{
+    background-color: green;
+    color: white;
+    padding: 10px 30px;
+    border: 1px solid green;
+    margin-top: 10px;
+    margin-bottom: 30px;
+}
+@media screen and (max-width: 900px) {
+    .mainmap{
+        width: 90vw;
+        height:70vh;
+    }
+
+  
+}

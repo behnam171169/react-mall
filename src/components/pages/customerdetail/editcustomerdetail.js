@@ -3,6 +3,7 @@ import React, { Component ,useState,useContext,useEffect} from 'react';
 import './customerdetail.css';
 import axios from 'axios';
 import {mainContext} from './../../../context/mainContext';
+import {Townscontext} from './../../../context/townscontext';
 import { IconContext } from "react-icons";
 import { FaCaretUp,FaSortDown } from "react-icons/fa";
 import Towns from './../../pages/towns/towns';
@@ -23,6 +24,7 @@ const Customerdetail=(props)=>{
   const[addres,setAddres]=useState('');
   const[sumprices,setsumprices]=useState('');
   const[errors, seterrors] = useState('');
+  const {customertowns,customercity,showtown,towns,showcity,citys,show}=useContext(Townscontext)
   // const[town,setNumber]=useState('');
   //  const[province,setprovince]=useState('');
   // const[city,setcity]=useState('');
@@ -83,7 +85,7 @@ useEffect(()=>{
       marker.setLngLat([_lng, _lat]);
     })
   },[]) 
-  const {customertowns,customercity,showtown,towns,showcity,citys,show}=useContext(mainContext)
+
   
   const [drop,setdrop]=useState('Dropdown');
   // const[showtown,setshowtown]=useState(false);
