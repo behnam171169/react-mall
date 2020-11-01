@@ -6,7 +6,9 @@ const TownscontextProvider=(props)=>{
   const [customercity, setcustomercity] = useState('شهر');
   const[showtown,setshowtown]=useState(false);
   const[showcity,setshowcity]=useState(false);
-
+const Townslistshow=()=>{
+  setshowtown(!showtown)
+}
   const towns=(text)=>{
     setshowtown(!showtown)
     setcustomertowns(text)
@@ -22,8 +24,11 @@ const TownscontextProvider=(props)=>{
           setshowtown(false)
           setshowcity(false)
         }
+     const Showlistcity=()=>{
+      setshowcity(!showcity)
+     }
     return(
-        <Townscontext.Provider value={{provins,customercity,customertowns,showtown,showcity,citys,show,towns}}>
+        <Townscontext.Provider value={{Showlistcity,Townslistshow,provins,customercity,customertowns,showtown,showcity,citys,show,towns}}>
         {props.children}
         </Townscontext.Provider>
         )

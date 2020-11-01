@@ -136,6 +136,7 @@ seterrors('لطفا دسته بندی را مشخص کنید')
         
         <Link to="/admin/Orders" class="active">سفارش ها</Link>
         <Link to="/admin/mycourse" class="active">پست های من</Link>
+        <Link to="/AdminQuestion" class="active">پرسش ها</Link>
 
         
       

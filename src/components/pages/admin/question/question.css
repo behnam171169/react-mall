@@ -10,6 +10,11 @@ background-color: white;
     box-sizing: border-box;
 display: block;
 }
+.adminspinner{
+    position:absolute;
+    margin-top: 40vh;
+    margin-left: 45vw;
+}
 .mainreset input{
     direction: ltr;
     width: 90%;

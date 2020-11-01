@@ -158,8 +158,8 @@ return(
   </div>
   
   </div>
-  <div className="maintalk">
-  <div className="talk" >
+  <div className="maincustomertalk">
+  <div className="customertalk" >
   <Link className="talkcreate"  to={{
     pathname: "/createcomment",
     state: {

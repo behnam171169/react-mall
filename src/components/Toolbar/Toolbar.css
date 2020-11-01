@@ -89,10 +89,13 @@ justify-content: center;
      opacity: 0;
  }
 }
-
+.phone{
+    text-decoration: none;
+    color: white;
+}
 @media(max-width:601px){
     .phone{
-        display: none;
+        font-size: 12px;
     }
    
     .loginbuttonmax{

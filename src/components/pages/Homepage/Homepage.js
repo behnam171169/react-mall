@@ -16,37 +16,18 @@ const HomePage=()=>{
     const [showspiner,setShowspiner]=useState(false);
     const [data, setdata] = useState([])
     const [searchtext, setSerchtext] = useState('')
-    // useEffect(() => {
-    //     let interval = setInterval(() => {
-    //         if(opacittytext==0.5){
-    //             Setopacittytext(1)
-    //             Settextcolor('#4cd137')
-                
-    //         }else if(opacittytext==1){
-    //             Setopacittytext(0.5)
-    //             Settextcolor('#27ae60')
-    //         }
-            
-    //     }, 100);
-        
-    //     return () => {
-    //         clearInterval(interval);
-    //     };
-    // });
+    
     const serchdata=(event)=>{
-  
-        // setSerchtext(e.target.value)
         const itemData=data.filter((item)=>{
             const itemDataa=item.title;
             const textData=event.target.value;
             return itemDataa.indexOf(textData)>-1
-          
-    })
-    
-    setdata(itemData)
-    setSerchtext(event.target.value)
-    // setSerchtext(e.target.value)
-    
+        })
+        
+        setdata(itemData)
+        setSerchtext(event.target.value)
+        
+        
     }
     useEffect(()=>{
         axios.get('http://localhost:3000/all', { 
@@ -70,26 +51,26 @@ console.log(data,'fffff')
 
 return(
     <div>   
-
-<div className="mainsearch">
-<div className="mainsearchinput">
-<div className="iconsearch">
-<IconContext.Provider
-      value={{ color: '#F79F1F', size: '30px'}}>
- <GoSearch /> 
+    
+    <div className="mainsearch">
+    <div className="mainsearchinput">
+    <div className="iconsearch">
+    <IconContext.Provider
+    value={{ color: '#F79F1F', size: '30px'}}>
+    <GoSearch /> 
     </IconContext.Provider>
     </div>
-<input  value={searchtext} name="searchdata" type="text" className="searchinput" placeholder="جستجوی محصولات"  onChange={(event)=>serchdata(event)}/> 
-</div>
-<div className="searchlogo">
-<text style={{fontSize:25,color:'green'}}>به کالا</text>
-</div>
-
+    <input  value={searchtext} name="searchdata" type="text" className="searchinput" placeholder="جستجوی محصولات"  onChange={(event)=>serchdata(event)}/> 
+    </div>
+    <div className="searchlogo">
+    <text style={{fontSize:25,color:'green'}}>به کالا</text>
+    </div>
+    
     </div>
     <div style={{opacity:modal?'0':'1',zIndex:1}}  className="dropdownmenu">
     <Dropdown3 /> 
     </div>
-
+    
     <div style={{display:'flex',justifyContent:'center',alignItems:'center'}}>
     
     { <Slideshow /> }

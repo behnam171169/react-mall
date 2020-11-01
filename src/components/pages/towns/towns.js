@@ -4,11 +4,8 @@ import {Townscontext} from './../../../context/townscontext';
 const Towns=(props)=>{
     const {provins,towns,customertowns}=useContext(Townscontext);
 const changetown=(text)=>{
-  
-
   towns(text)
-
-}
+ }
 
     return(
       <div>

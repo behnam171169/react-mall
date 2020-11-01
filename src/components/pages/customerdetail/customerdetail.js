@@ -23,10 +23,10 @@ const Customerdetail=(props)=>{
   const[codemeli,setCodemeli]=useState('');
   const[codeposti,setCodeposti]=useState('');
   const[phonenumber,setphonenumber]=useState('');
-  const {customertowns,customercity,showtown,towns,showcity,citys,coordinate,provins}=useContext(Townscontext)
+  const {Showlistcity,customertowns,customercity,showtown,towns,showcity,citys,coordinate,provins,Townslistshow}=useContext(Townscontext)
   // const[province,setprovince]=useState('');
   // const[city,setcity]=useState('');
-  
+  console.log(customertowns,'888')
   const[addres,setaddres]=useState('');
   const[errors, seterrors] = useState('');
 
@@ -41,6 +41,9 @@ const Customerdetail=(props)=>{
     }
   })
 },[])
+const townshow=()=>{
+  Townslistshow()
+}
 // useEffect(()=>{
 // mapboxgl.accessToken = 'pk.eyJ1IjoiYmVobmFtMTciLCJhIjoiY2ticzRoNWNjMDAyZTJ5bDU5OWpiZ3B3diJ9.BDs34GTjlq6M3trXe40xvQ';
 // var coordinates = document.getElementById('coordinates');
@@ -89,10 +92,14 @@ const Customerdetail=(props)=>{
 const [drop,setdrop]=useState('Dropdown');
 // const[showtown,setshowtown]=useState(false);
 const nametown=(text)=>{
+  
   towns(text)
 }
 const namecity=(text)=>{
   citys(text)
+}
+const showlistcity=()=>{
+  Showlistcity()
 }
 const sabt=()=>{
   if(name.length<1 || lastname.length<1 || codemeli.length<1 
@@ -173,9 +180,9 @@ return(
   
   <div className="customerdetail">
   <div className="mainCustomerdetail1input">
-<text>{customertowns}</text>
+
   <text>استان</text>
-  <button  className="hometownselectbox" onClick={()=>nametown('استان')}>
+  <button  className="hometownselectbox" onClick={townshow}>
   <text>{customertowns}</text>
   <div style={{display:showtown ?'none':'flex'}}>
   <IconContext.Provider
@@ -197,7 +204,7 @@ return(
   </div>
   <div className="mainCustomerdetail1input">
   <text>شهر</text>
-  <button className="hometownselectbox" onClick={()=>namecity('شهر')}>
+  <button className="hometownselectbox" onClick={showlistcity}>
   <text>{customercity}</text>
   <div style={{display:showcity ?'none':'flex'}}>
   <IconContext.Provider

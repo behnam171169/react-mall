@@ -97,7 +97,7 @@ const Toolbar=(props)=>{
     
     
     <span style={{color:'#ffffff',height:'100%',display:'flex',alignItems:'center'}}>
-    <span style={{marginLeft:3,marginTop:10}} >
+    {/* <span style={{marginLeft:3,marginTop:10}} >
     <div className="phone">
     <IconContext.Provider
     value={{ color: '#F79F1F', size: '18px'}}>
@@ -105,13 +105,13 @@ const Toolbar=(props)=>{
     
     </IconContext.Provider>
     </div>
-    </span>
-    <span style={{marginLeft:4,marginTop:6,color:'#F79F1F'}} className="phone">
+    </span> */}
+    {/* <span style={{marginLeft:4,marginTop:6,color:'#F79F1F'}} className="phone">
     09106861071
-    </span>
-    <span className="showNav">
-    پشتیبانی و فروش  
-    </span>
+    </span> */}
+    <Link  to="/Question" className="phone">
+    ارتباط با ما
+    </Link>
     
     </span>
     

@@ -46,7 +46,7 @@ margin-top: 3vh;
   border: 1px solid green;
 
 }
-.maintalk{
+.maincustomertalk{
   display: flex;
   flex-direction: column;
 
@@ -57,7 +57,7 @@ margin-top: 3vh;
   background-color: white;
 /* background-color: indianred; */
 }
-.talk{
+.customertalk{
   width: 79.3vw;
   display: flex;
   flex-direction: row;

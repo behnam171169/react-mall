@@ -61,8 +61,8 @@ const CreateComment=(props)=>{
     }}
     return(
         <div className="maincomment">
-        <div className="comment">
-        <text >ثبت نظر کاربران</text>
+        <div className="headercomment">
+        <text style={{marginRight:10}} >ثبت نظر کاربران</text>
         </div>
         <div style={{display:error.length>0?'flex':'none'}} className="errorcreatecomment">
         <text  >{error}</text>

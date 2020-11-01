@@ -10,8 +10,8 @@ import Dropdown3 from './../../../Dropdown/Dropdown3/Dropdown3';
 import Swal from 'sweetalert2'
 const AdminQuestion=(props)=>{
   const {changesearchbar,modal}=useContext(Stufflistcontext)
-  const {login}=useContext(mainContext)
-//   const [customerquestion, setcustomerquestion] = useState('');
+  const {login,admin}=useContext(mainContext)
+  const [answer, setanswer] = useState('');
   const [errors, seterrors] = useState('');
   const [showspiner,setShowspiner]=useState(false);
   const[customerquestion,setCustomerquestion]=useState([])
@@ -26,13 +26,14 @@ const AdminQuestion=(props)=>{
         setCustomerquestion(response.data)
     })
   },[])
-  const question=(event)=>{
-    // setcustomerquestion(event.target.value)
+  const adminanswer=(event)=>{
+    setanswer(event.target.value)
+
   }
  
  
-  const sabt=()=>{
-    if(customerquestion.length<1){
+  const sabt=(text)=>{
+    if(answer.length<1){
       seterrors("سوالی بپرسید")
     }
    else{
@@ -40,7 +41,7 @@ const AdminQuestion=(props)=>{
       
       return(
         setShowspiner(true),
-        fetch('http://localhost:3000/customerquestion',{
+        fetch('http://localhost:3000/answeradmin',{
         method:'POST',
         headers:{
           'Accept':'application/json',
@@ -48,8 +49,8 @@ const AdminQuestion=(props)=>{
         },
         body:JSON.stringify(
           {
-            question:customerquestion,
-            userid:userid,
+            answer:answer,
+            id:text,
             
           }
           )
@@ -59,15 +60,8 @@ const AdminQuestion=(props)=>{
           const statuse=await response.status;
           console.log(statuse,'jjjjj')
           if(statuse == 200){
-            Swal.fire({
-              title: 'لینک تغییر رمز به ایمیل شما ارسال شد',
-              icon: 'success',
-              confirmButtonText: 'متوجه شدم',
-            })
             setShowspiner(false)
-            
-        
-            
+            window.location.reload({forcedReload:true});
           }else if(statuse == 400){
             setShowspiner(false)
             seterrors(data.message)
@@ -86,32 +80,34 @@ const AdminQuestion=(props)=>{
     }
     return(
       <div>
-     {/* <div style={{opacity:modal?'0':'1',zIndex:1,marginTop:60}}  className="dropdownmenu">
+       <div className="adminspinner" style={{display:showspiner?'flex':'none'}}>
+      <Spiner/>
+      </div>
+     <div style={{opacity:modal?'0':'1',zIndex:1,marginTop:60}}  className="dropdownmenu">
     <Dropdown3 /> 
     </div>
-      <div style={{display:login?'none':'flex',justifyContent:'center',alignItems:'center',marginTop:20}}>
-      <text>ابتدا به حساب کاربری خود وارد شوید</text>
-   </div> */}
+      <div style={{display:admin?'none':'block',justifyContent:'center',alignItems:'center',marginTop:20}}>
+      <text>شما مدیر نیستید</text>
+   </div>
   
-       <div style={{display:'block'}}>
+       <div style={{display:admin?'block':'none'}}>
+       
                   {customerquestion.map((data)=>
                  
       <div className="mainreset">
       <text  style={{marginTop:10,marginBottom:20,display:'block'}}>{data.question}</text> 
 
-      <div className="errorresetpassword" style={{display:errors.length<1?'none':'',}}>
+      {/* <div className="errorresetpassword" style={{display:errors.length<1?'none':'',}}>
       {errors}
-      </div>
+      </div> */}
      
-      <input type="email" placeholder="سوالی دارید؟" onChange={question} />
+      <input type="email" placeholder="پاسخ دهید" onChange={adminanswer} />
 
-      <button onClick={sabt}>
+      <button onClick={()=>sabt(data._id)}>
     ثبت
       </button>
      
-      <div style={{display:showspiner?'flex':'none'}}>
-      <Spiner/>
-      </div>
+      
       </div>
  )}  
  </div>

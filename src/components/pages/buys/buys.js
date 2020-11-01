@@ -108,9 +108,10 @@ return(
    <Spinner/>
    </div>
    {buydata.map((data)=>
-      <div>
+    
       
       <div  className="buydetail">
+         <div className="postdetail">
       <div className="mainimagebuy">
       <img src="https://www.beytoote.com/images/stories/housekeeping/hou16389.jpg" className="buysImage" />
       </div>
@@ -122,19 +123,18 @@ return(
       <text style={{display:data.numberinpuckets.length<1?'none':'flex'}} className="buytitletext"><span style={{color:'#44bd32',fontWeight:'bold'}}>تعداد در بسته:</span>{data.numberinpuckets}</text>
       <text style={{display:data.garantis.length<1?'none':'flex'}} className="buytitletext"><span style={{color:'#44bd32',fontWeight:'bold'}}>گارانتی:</span>{data.garantis}</text>
       <text style={{display:data.country.length<1?'none':'flex'}} className="buytitletext"><span style={{color:'#44bd32',fontWeight:'bold'}}>کشور سازنده:</span>{data.country}</text>
-      
-      
+      </div>
       </div>
       <div className="buyprice">
-      <text>قیمت:</text>
-      <text ><span style={{color:'#F79F1F',fontWeight:'bold'}}>{data.prices}</span> تومان</text>
+      {/* <text>قیمت:</text> */}
+      <text style={{marginBottom:10}} ><span style={{color:'#3498db',fontWeight:'bold'}}>قیمت:{data.prices}</span> تومان</text>
       
-      <div style={{display:'flex',flexDirection:'column',alignItems:'center'}}>
+      <div style={{display:'flex',flexDirection:'column',alignItems:'center',marginBottom:10}}>
       {/* <div className="mainbuttonbuy"> */}
       <div className="buynumber" >
       <text>تعداد:</text>
       <IconContext.Provider
-      value={{ color: '#F79F1F', size: '25px'}}>
+      value={{ color: '#3498db', size: '25px'}}>
       <FaPlus   onClick={()=>plusnumber({userid:data.user,idpost:data._id})}/> 
       </IconContext.Provider>
       
@@ -144,7 +144,7 @@ return(
       {/* <input defaultValue={data.Count} className="inputnumber"/> */}
       <div style={{display:data.Count >1 ?'flex':'none'}}>
       <IconContext.Provider
-      value={{ color: '#F79F1F', size: '25px'}}>
+      value={{ color: '#3498db', size: '25px'}}>
       <FaMinus   onClick={()=>subtractnumber({userid:data.user,idpost:data._id})}/> 
       </IconContext.Provider>
       </div>
@@ -155,12 +155,13 @@ return(
       </IconContext.Provider>
       </div>
       </div>
+      
       {/* <button  className="buttonbuy"><text>{buyicon}</text>افزودن به سبد خرید</button> */}
       {/* </div> */}
       </div>
       </div>
       </div>
-      </div>
+    
       )}
      
       <div style={{display:buydata.length<1?'none':'flex'}} className="buysprices">
