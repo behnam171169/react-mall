@@ -3,6 +3,7 @@ import axios from 'axios';
 import ReCAPTCHA from "react-google-recaptcha";
 import Spiner from './../../../spinner/spinner';
 import {withRouter} from 'react-router-dom';
+import api from './../../../../htpp/api';
 import {mainContext} from './../../../../context/mainContext';
 import {Stufflistcontext} from './../../../../context/stufflistcontext';
 import './question.css';
@@ -19,7 +20,7 @@ const AdminQuestion=(props)=>{
   console.log(customerquestion,'pppp')
   useEffect(()=>{
     changesearchbar(false)
-    axios.get(`http://localhost:3000/admin/userquestions`, { 
+    axios.get(`${api.api}/admin/userquestions`, { 
     })
     .then((response)=>{
   
@@ -41,7 +42,7 @@ const AdminQuestion=(props)=>{
       
       return(
         setShowspiner(true),
-        fetch('http://localhost:3000/answeradmin',{
+        fetch(`${api.api}/answeradmin`,{
         method:'POST',
         headers:{
           'Accept':'application/json',

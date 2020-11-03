@@ -1,7 +1,7 @@
 import React, { Component,useState,useEffect,useContext} from 'react'
 import './editprofile.css';
 import axios from 'axios';
-
+import api from './../../../htpp/api';
 import Spiner from './../../spinner/spinner';
 import {withRouter} from 'react-router-dom';
 import {mainContext} from './../../../context/mainContext';
@@ -19,7 +19,7 @@ const Editprofile=(props)=>{
    const id=localStorage.getItem('user')
     useEffect(()=>{
       changesearchbar(false)
-        axios.get(`http://localhost:3000/edietprofile/${id}`, { 
+        axios.get(`${api.api}/edietprofile/${id}`, { 
         })
         .then((response)=>{
         console.log(response.data.data[0],'oioi')
@@ -61,7 +61,7 @@ setErrors("لطفا همه فیلد ها را پر کنید")
           username:username
       }
       const data=JSON.stringify(dataa)
-      axios.put(`http://localhost:3000/auth/editprofile/${id}`,data,{ 
+      axios.put(`${api.api}/auth/editprofile/${id}`,data,{ 
       }).then((response)=>{
 
 if(response.status==200){

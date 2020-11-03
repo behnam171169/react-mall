@@ -1,5 +1,7 @@
 import React, { Component,useState,useEffect } from 'react';
+import api from './../htpp/api';
 export const mainContext=React.createContext();
+
 const MainContextProvider=(props)=>{
   
  const [login, setlogin] = useState(false);
@@ -11,7 +13,7 @@ const MainContextProvider=(props)=>{
 
   useEffect(()=>{
 
-    fetch('http://localhost:3000/auth/login/token',{
+    fetch(`${api.api}/auth/login/token`,{
       method:'POST',
       headers:{
         'Accept':'application/json',

@@ -8,11 +8,12 @@ background-color: white;
     padding-bottom: 20px;
     padding-top: 20px;
     box-sizing: border-box;
+    border-radius: 10px;
 }
 .mainregister input{
     direction: rtl;
     width: 90%;
-    padding: 25px;
+    padding: 15px;
     margin-bottom:15px;
     border-radius: 5px;
     font-size: 20px;
@@ -21,8 +22,9 @@ background-color: white;
     box-sizing: border-box;
 }
 .registerrecaptcha{
-direction: rtl;
+direction:rtl;
 margin-right: 5%;
+
 }
 .errorregister{
     display: flex;
@@ -36,7 +38,7 @@ margin:5px auto;
 .mainregister button{
     direction: rtl;
     width: 90%;
-    padding: 25px;
+    padding: 15px;
     /* margin-bottom:15px; */
     margin: 15px auto;
     border-radius: 5px;

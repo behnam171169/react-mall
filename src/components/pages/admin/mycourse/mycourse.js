@@ -1,6 +1,7 @@
 import React, { Component,useEffect,useState,useContext } from 'react'
 import axios from 'axios';
 import './mycourse.css';
+import api from './../../../../htpp/api';
  import {mainContext} from './../../../../context/mainContext';
 import {Link} from 'react-router-dom';
 const Mycourses=(props)=>{
@@ -10,7 +11,7 @@ const[message,setMessage]=useState('');
 const {admin}=useContext(mainContext)
 const userid=localStorage.getItem('user')
 const checkdata=(id)=>{
-    axios.put(`http://localhost:3000/admin/courses/check/${id}`, {  
+    axios.put(`${api.api}/admin/courses/check/${id}`, {  
     })
     .then((response)=>{
         if(response.status ==200){
@@ -29,7 +30,7 @@ const deletok=()=>{
 
 
     useEffect(()=>{
-        axios.get(`http://localhost:3000/admin/mycourses/${userid}`, { 
+        axios.get(`${api.api}/admin/mycourses/${userid}`, { 
         })
         .then((response)=>{
             setdata(response.data);
@@ -37,7 +38,7 @@ const deletok=()=>{
     },[]);
 
    const deletedata=(id)=>{
-    axios.delete(`http://localhost:3000/admin/course/${id}`)
+    axios.delete(`${api.api}/admin/course/${id}`)
     .then(res => {
         if(res.status ==200){
             deletok();

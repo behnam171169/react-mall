@@ -1,5 +1,6 @@
 import React, { Component, useEffect, useState } from 'react';
 import axios from 'axios';
+import api from './../../../../htpp/api';
 import './orderdetail.css'
 const Orderdetail=(props)=>{
     // console.log(props.location.state.resnumber,'lklklklkl')
@@ -9,11 +10,11 @@ const Orderdetail=(props)=>{
 
    console.log(reciverdata.resnumber,'kjhgfdsa2222')
 // useEffect(()=>{
-//     axios.get(`http://localhost:3000/admin/ordersdetail/seeok${props.location.state.resnumber}`, { 
+//     axios.get(`${api.api}/admin/ordersdetail/seeok${props.location.state.resnumber}`, { 
 //     })
 // },[])
     useEffect(()=>{
-        axios.get(`http://localhost:3000/admin/ordersdetail/${props.location.state.resnumber}`, { 
+        axios.get(`${api.api}/admin/ordersdetail/${props.location.state.resnumber}`, { 
         }).then((response)=>{
    console.log(response.data[0][0],'ccccc')
    setreciverdata(response.data[0][0])
@@ -22,7 +23,7 @@ const Orderdetail=(props)=>{
     },[])
      const sendstuff=()=>{
         const resnumber=reciverdata.resnumber;
-        axios.delete(`http://localhost:3000/admin/sendstuff/ok/${resnumber}`, { 
+        axios.delete(`${api.api}/admin/sendstuff/ok/${resnumber}`, { 
         })
         .then((response)=>{
             if(response.status==200){

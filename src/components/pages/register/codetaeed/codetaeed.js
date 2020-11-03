@@ -8,6 +8,7 @@ import {Stufflistcontext} from './../../../../context/stufflistcontext';
 import './codetaeed.css';
 import Dropdown3 from './../../../Dropdown/Dropdown3/Dropdown3'
 import Swal from 'sweetalert2'
+import api from './../../../../htpp/api';
 const Codetaeed=(props)=>{
   const {changesearchbar,modal}=useContext(Stufflistcontext)
   const {login}=useContext(mainContext)
@@ -42,7 +43,7 @@ const Codetaeed=(props)=>{
       return(
         setShowspiner(true),
       
-        fetch('http://localhost:3000/auth/password/email',{
+        fetch(`${api.api}/auth/password/email`,{
         method:'POST',
         headers:{
           'Accept':'application/json',

@@ -9,6 +9,7 @@ import {Link} from 'react-router-dom';
 import Dropdown3 from './../../Dropdown/Dropdown3/Dropdown3'
 import { IconContext } from "react-icons";
 import { GoSearch  } from "react-icons/go";
+import api from './../../../htpp/api';
 import './Homepage.css';
 const HomePage=()=>{
     const {login,username,admin}=useContext(mainContext)
@@ -18,9 +19,9 @@ const HomePage=()=>{
     const [searchtext, setSerchtext] = useState('')
     
     const serchdata=(event)=>{
+        const textData=event.target.value;
         const itemData=data.filter((item)=>{
             const itemDataa=item.title;
-            const textData=event.target.value;
             return itemDataa.indexOf(textData)>-1
         })
         
@@ -30,7 +31,7 @@ const HomePage=()=>{
         
     }
     useEffect(()=>{
-        axios.get('http://localhost:3000/all', { 
+        axios.get(`${api.api}/all`, { 
         
     }) .then((response)=>{
         setShowspiner(false)
@@ -60,7 +61,7 @@ return(
     <GoSearch /> 
     </IconContext.Provider>
     </div>
-    <input  value={searchtext} name="searchdata" type="text" className="searchinput" placeholder="جستجوی محصولات"  onChange={(event)=>serchdata(event)}/> 
+    <input  value={searchtext} name="searchdata" type="text"  placeholder="جستجوی محصولات"  onChange={(event)=>serchdata(event)}/> 
     </div>
     <div className="searchlogo">
     <text style={{fontSize:25,color:'green'}}>به کالا</text>
@@ -92,11 +93,12 @@ return(
     <Link to={{
         pathname: '/postdetails',
         state: {
-            id:dataa._id
+            id:dataa._id,
+            image:dataa.images
         }
     }}>
     <div className="mainstuffcard">
-    <img src="https://www.beytoote.com/images/stories/housekeeping/hou16389.jpg" className="flowerImage" />
+    <img src={`${api.api}${dataa.images}`} className="flowerImage" />
     <div style={{display:'flex',alignItems:'center',flexDirection:'column'}}>
     <text >{dataa.title}</text>
     <div className="flowerprice">

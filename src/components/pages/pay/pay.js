@@ -2,6 +2,7 @@ import React, { Component,useEffect,useContext,useState } from 'react'
 import './pay.css';
 import {mainContext} from './../../../context/mainContext';
 import axios from 'axios';
+import api from './../../../htpp/api';
 const Pay=(props)=>{
     const {userid}=useContext(mainContext)
     const {customertowns,customercity,showtown,towns,showcity,citys,show}=useContext(mainContext)
@@ -22,7 +23,7 @@ const Pay=(props)=>{
             number:number,
             }
            const data=JSON.stringify(dataa);
-            axios.post('http://localhost:3000/payment',data, { 
+            axios.post(`${api.api}/payment`,data, { 
             }).then((response)=>{
              
               console.log(response.status,'xxxxx')
@@ -37,7 +38,7 @@ const Pay=(props)=>{
     }
 
     useEffect(()=>{
-        axios.get(`http://localhost:3000/user/buys/${id}`, { 
+        axios.get(`${api.api}/user/buys/${id}`, { 
         })
         .then((response)=>{
             console.log(response.data,'jhjhgfdd')
@@ -55,7 +56,7 @@ setsumprices(response.data.allprices)
             id:userid
         }
     const data=JSON.stringify(dataa);
-    axios.get(`http://localhost:3000/getreciverdetails/${id}`,{ 
+    axios.get(`${api.api}/getreciverdetails/${id}`,{ 
              }).then((response)=>{
 console.log(response.data[0],'jj')
 if(response.status==200){

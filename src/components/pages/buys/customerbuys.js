@@ -3,6 +3,7 @@ import axios from 'axios';
 import Spinner from './../../spinner/spinner';
 import Dropdown3 from './../../Dropdown/Dropdown3/Dropdown3'
 import {mainContext} from './../../../context/mainContext';
+import api from './../../../htpp/api';
 import {Stufflistcontext} from './../../../context/stufflistcontext';
 const Customerbuys=(props)=>{
     const {login}=useContext(mainContext)
@@ -13,7 +14,7 @@ const Customerbuys=(props)=>{
     useEffect(()=>{
  
         setshowspinner(true)
-        axios.get(`http://localhost:3000/user/customerbuys/${id}`, { 
+        axios.get(`${api.api}/user/customerbuys/${id}`, { 
         })
         .then((response)=>{
             if(response.status==200){

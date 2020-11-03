@@ -8,12 +8,13 @@ background-color: white;
     padding-bottom: 20px;
     padding-top: 20px;
     box-sizing: border-box;
+    border-radius: 10px;
 
 }
 .mainlogin input{
     direction: ltr;
     width: 90%;
-    padding: 25px;
+    padding: 15px;
     margin-bottom:15px;
     border-radius: 5px;
     font-size: 20px;
@@ -33,13 +34,13 @@ margin-right: 5%;
 margin:5px auto;
 /* text-align: center; */
     width: 90%;
-    background-color: rgb(218, 117, 117);
+    background-color: rgb(207, 126, 197);
     padding:10px;
 }
 .mainlogin button{
     direction: rtl;
     width: 90%;
-    padding: 25px;
+    padding: 15px;
     /* margin-bottom:15px; */
     margin: 15px auto;
     border-radius: 5px;

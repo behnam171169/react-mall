@@ -13,7 +13,7 @@ import {mainContext} from './../../../context/mainContext';
         changemenu(!menu) 
       }
     return(
-         <div >
+         <div  >
     
       <div  className="closemenuicon"  >
         
@@ -22,9 +22,9 @@ import {mainContext} from './../../../context/mainContext';
  <IoIosArrowForward onClick={()=>closemenu()} /> 
     </IconContext.Provider>
        </div>
-         <div >
+        <div >
         <Flowerlist/>
-         </div>
+        </div>
          </div>
      )
  }

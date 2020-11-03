@@ -7,6 +7,7 @@ import { IconContext } from "react-icons";
 import {AiOutlineDelete } from "react-icons/ai";
 import { FaPlus,FaMinus } from "react-icons/fa";
 import Dropdown3 from './../../Dropdown/Dropdown3/Dropdown3'
+import api from './../../../htpp/api';
 import './buys.css';
 const Buys=(props)=>{
    const {userid,login}=useContext(mainContext)
@@ -20,7 +21,7 @@ const Buys=(props)=>{
    //  console.log(id,'pppoooo')
    useEffect(()=>{
       
-      axios.get(`http://localhost:3000/user/buys/${id}`, { 
+      axios.get(`${api.api}/user/buys/${id}`, { 
    })
    .then((response)=>{
       setbuydata(response.data.BUY)
@@ -39,7 +40,7 @@ const plusnumber=({userid,idpost})=>{
       id:idpost,
    }
    const data=JSON.stringify(dataa)
-   axios.put(`http://localhost:3000/user/buys/plus/${userid}`,data ,{ 
+   axios.put(`${api.api}/user/buys/plus/${userid}`,data ,{ 
 })
 .then((response)=>{
    if(response.status==200){
@@ -56,7 +57,7 @@ const subtractnumber=({userid,idpost})=>{
       id:idpost,
    }
    const data=JSON.stringify(dataa)
-   axios.put(`http://localhost:3000/user/buys/subtract/${userid}`,data ,{ 
+   axios.put(`${api.api}/user/buys/subtract/${userid}`,data ,{ 
 })
 .then((response)=>{
    console.log(response,'aaa')
@@ -77,7 +78,7 @@ const  deletebuy=({userid,idpost})=>{
       id:idpost,
    }
    const data=JSON.stringify(dataa)
-   axios.delete(`http://localhost:3000/user/buys/delete/${userid}`,{headers: { "id": idpost } })
+   axios.delete(`${api.api}/user/buys/delete/${userid}`,{headers: { "id": idpost } })
    .then((response)=>{
       
       if(response.status==200){

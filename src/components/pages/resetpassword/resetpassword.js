@@ -6,6 +6,7 @@ import {withRouter} from 'react-router-dom';
 import {mainContext} from './../../../context/mainContext';
 import {Stufflistcontext} from './../../../context/stufflistcontext';
 import Dropdown3 from './../../Dropdown/Dropdown3/Dropdown3'
+import api from './../../../htpp/api';
 import Swal from 'sweetalert2'
 const Resetpassword=(props)=>{
   const {changesearchbar,modal}=useContext(Stufflistcontext)
@@ -13,7 +14,7 @@ const Resetpassword=(props)=>{
   const [username, setusername] = useState('');
   const [errors, seterrors] = useState('');
 
-  const [recaptcha,setRecaptcha]=useState(false);
+  const [recaptcha,setRecaptcha]=useState(true);
   const [showspiner,setShowspiner]=useState(false);
   useEffect(()=>{
     changesearchbar(false)
@@ -42,7 +43,7 @@ const Resetpassword=(props)=>{
       return(
         setShowspiner(true),
       
-        fetch('http://localhost:3000/auth/password/email',{
+        fetch(`${api.api}/auth/password/email`,{
         method:'POST',
         headers:{
           'Accept':'application/json',
@@ -93,7 +94,7 @@ const Resetpassword=(props)=>{
       {/* <div style={{display:login?'none':'flex',justifyContent:'center',alignItems:'center',marginTop:20}}>
       <text>ابتدا به حساب کاربری خود وارد شوید</text>
                         </div> */}
-      <div className="mainreset">
+      <div className="mainresetpssword">
       <div className="errorresetpassword" style={{display:errors.length<1?'none':'',}}>
       {errors}
       </div>
@@ -105,7 +106,7 @@ const Resetpassword=(props)=>{
       onChange={recaptchastate}
       />
       </div>
-      <button onClick={reset}>
+      <button className="changepasswordbutton" onClick={reset}>
       تغییر رمز
       </button>
       <div style={{display:showspiner?'flex':'none'}}>

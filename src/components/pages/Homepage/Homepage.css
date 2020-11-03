@@ -127,9 +127,10 @@ left: 10%; */
        direction: rtl;
       }
       .mainsearchinput{
-       flex: 0.6;
+       flex: 0.5;
         display: flex;
-        justify-content: center;
+        justify-content:flex-end;
+        padding-right: 20px;
        
       }
       .mainsearchinput input{
@@ -137,13 +138,13 @@ left: 10%; */
         border-top-right-radius: 0px;
         border-bottom-right-radius: 0px;
         border-right: none;
-        flex: 0.8;
+        flex: 0.6;
         padding: 5px 15px;
       border: 1px solid rgb(216, 211, 211);
     
       }
 .searchlogo{
-  flex: 0.4;
+  flex: 0.5;
   /* background-color: violet; */
   /*  */
   display: flex;
@@ -194,12 +195,11 @@ left: 10%; */
         .flowerImage{
           height: 20vh;
         }
-        .mainsearchinput input{
-          flex: 0.9;
-        }
-        .mainsearchinput{
-          flex: 0.7;
-        }
+       
+        /* .mainsearchinput input{
+          flex: 0.4;
+        } */
+        
         .searchlogo{
           flex: 0.3;
         }

@@ -4,6 +4,7 @@ import {Link} from 'react-router-dom';
 import {withRouter} from 'react-router-dom';
 import ReCAPTCHA from "react-google-recaptcha";
 import {mainContext} from './../../context/mainContext';
+import api from './../../htpp/api'
 import {Stufflistcontext} from './../../context/stufflistcontext';
 import Spiner from './../spinner/spinner';
 const Modal=(props)=>{
@@ -62,7 +63,7 @@ const Modal=(props)=>{
       setshowerror('none')
       return(
         setShowspiner(true),
-        fetch('http://localhost:3000/auth/login',{
+        fetch(`${api.api}/auth/login`,{
         method:'POST',
         headers:{
           'Accept':'application/json',

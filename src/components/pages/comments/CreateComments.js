@@ -3,6 +3,7 @@ import './Createcomment.css'
 import Swal from 'sweetalert2'
 import axios from 'axios';
 import Spiner from './../../spinner/spinner';
+import api from '../../../htpp/api';
 const CreateComment=(props)=>{
     const [name, setname] = useState('')
     const [comment, setcomment] = useState('')
@@ -27,7 +28,7 @@ const CreateComment=(props)=>{
                 course:props.location.state.id
             })
             
-            axios.post('http://localhost:3000/createcomment',data, { 
+            axios.post(`${api.api}/createcomment`,data, { 
             
         }).then((response)=>{
             setShowspiner(true)

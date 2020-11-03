@@ -8,6 +8,7 @@ import { MdShoppingCart} from "react-icons/md";
 import { FaPlus,FaMinus } from "react-icons/fa";
 import {mainContext} from './../../../context/mainContext';
 import Spiner from './../../spinner/spinner';
+import api from './../../../htpp/api';
 const Postdetails=(props)=>{
 const userid=localStorage.getItem('user');
   const {login,admin}=useContext(mainContext);
@@ -18,6 +19,8 @@ const userid=localStorage.getItem('user');
   // console.log(postsdetail.color,'gghhhhgghhh')
   const[number,setnumber]=useState(1);
   const [showspiner,setShowspiner]=useState(false);
+  const image=props.location.state.image;
+
   const plusnumber=()=>{
     setnumber(number+1)
   }
@@ -32,7 +35,7 @@ const userid=localStorage.getItem('user');
     localStorage.removeItem('admin')
   }
   const deletcomment=(id)=>{
-    axios.delete(`http://localhost:3000/admin/commentsdelete/${id}`, { 
+    axios.delete(`${api.api}/admin/commentsdelete/${id}`, { 
   })
   .then((response)=>{
     if(response.status==200){
@@ -43,7 +46,7 @@ const userid=localStorage.getItem('user');
 useEffect(() => {
   
   setShowspiner(true)
-  axios.get(`http://localhost:3000/detail/${id}`, { 
+  axios.get(`${api.api}/detail/${id}`, { 
 })
 .then((response)=>{
   if(response.status==200){
@@ -62,7 +65,7 @@ useEffect(() => {
 },[])
 
 useEffect(() => {
-  axios.get(`http://localhost:3000/comments/${id}`, { 
+  axios.get(`${api.api}/comments/${id}`, { 
 })
 .then((response)=>{
   if(response.status==200){
@@ -87,7 +90,7 @@ const buy=()=>{
       userid:userid
     }
     const data=JSON.stringify(dataa);
-    axios.post('http://localhost:3000/buys',data, { 
+    axios.post(`${api.api}/buys`,data, { 
   })
   .then((response)=>{
     if(response.status==200){
@@ -111,7 +114,7 @@ return(
   <div style={{display:'flex',flexDirection:'column'}}>
 
   <div className="mainpostdetails">
-  <img src="https://www.beytoote.com/images/stories/housekeeping/hou16389.jpg" className="postdetailimage" />
+  <img src={`${api.api}${image}`} className="postdetailimage" />
   <div className="detailpost">
   <div style={{display:'flex'}}>
   <text style={{marginBottom:40,color:'green',fontWeight:500}}>   نام کالا:   </text>

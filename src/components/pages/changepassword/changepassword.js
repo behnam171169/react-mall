@@ -3,6 +3,7 @@ import './changepassword.css';
 import ReCAPTCHA from "react-google-recaptcha";
 import {withRouter} from 'react-router-dom';
 import Spiner from './../../spinner/spinner';
+import api from '../../../htpp/api';
 import {Stufflistcontext} from './../../../context/stufflistcontext';
 const Changepassword=(props)=>{
   const [username, setusername] = useState('');
@@ -11,6 +12,7 @@ const Changepassword=(props)=>{
   const [recaptcha,setRecaptcha]=useState('');
   const [showspiner,setShowspiner]=useState(false);
   const {changesearchbar}=useContext(Stufflistcontext)
+
   const url=window.location.pathname;
   useEffect(() => {
     changesearchbar(false)
@@ -43,7 +45,7 @@ const Changepassword=(props)=>{
     else{
       return(
         setShowspiner(true),
-        fetch('http://localhost:3000/auth/password/reset',{
+        fetch(`${api.api}/auth/password/reset`,{
         method:'POST',
         headers:{
           'Accept':'application/json',

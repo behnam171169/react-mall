@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 import {withRouter} from 'react-router-dom';
 import Spiner from './../../spinner/spinner';
 import {Stufflistcontext} from './../../../context/stufflistcontext';
-
+import api from './../../../htpp/api';
 const Register=(props)=>{
   
   
@@ -14,7 +14,7 @@ const Register=(props)=>{
   const [username, setusername] = useState('');
   const [password, setPassword] = useState('');
   const [errors,setErrors]=useState('');
-  const [recaptcha,setRecaptcha]=useState(false);
+  const [recaptcha,setRecaptcha]=useState(true);
   const [showspiner,setShowspiner]=useState(false);
   const {changesearchbar}=useContext(Stufflistcontext)
   useEffect(() => {
@@ -61,7 +61,7 @@ const Register=(props)=>{
       setErrors('')
       return(
         setShowspiner(true),
-        fetch('http://localhost:3000/auth/register',{
+        fetch(`${api.api}/auth/register`,{
         method:'POST',
         headers:{
           'Accept':'application/json',
@@ -134,7 +134,7 @@ const Register=(props)=>{
       ثبت نام
       </button>
       
-      <text>قبلا ثبت نام کرده اید؟<Link   onClick={gologin}>وارد شوید</Link></text>
+      <text>قبلا ثبت نام کرده اید؟<Link style={{textDecoration:'none'}}  onClick={gologin}>وارد شوید</Link></text>
       
       
       </div>

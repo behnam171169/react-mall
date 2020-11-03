@@ -53,8 +53,8 @@ changestufflist(text)
     
   
     
-    <Link style={{display:menu ?'none':'block'}}  className="Draweritems" onClick={()=>closedrawer()} to="/">صفحه اصلی</Link>
-       <Link style={{display:menu ?'none':'block'}}  className="Draweritems" onClick={()=>changeDrawer(flower)} >گل</Link>
+    <Link style={{display:menu ?'none':'block',textDecoration:'none'}}  className="Draweritems" onClick={()=>closedrawer()} to="/">صفحه اصلی</Link>
+       <Link style={{display:menu ?'none':'block',textDecoration:'none'}}  className="Draweritems" onClick={()=>changeDrawer(flower)} >گل</Link>
        
        <div className={classes2.join(' ')}>
            <div >
@@ -62,15 +62,15 @@ changestufflist(text)
            </div>
            <SlideDrowerpages  />
        </div>
-       <Link style={{display:menu ?'none':'block'}} className="Draweritems" onClick={()=>changeDrawer(book)} >لوتزم خانگی</Link>
-       <Link style={{display:menu ?'none':'block'}} className="Draweritems" >آرایشی و بهداشتی</Link>
-       <Link style={{display:menu ?'none':'block'}} className="Draweritems"  onClick={changeDrawer} to="/Computer" > کامپیوتر و لپ تاپ</Link>
-       <Link style={{display:menu ?'none':'block'}} className="Draweritems" >لوازم جانبی دیجیتال</Link>
-       <Link style={{display:menu ?'none':'block'}} className="Draweritems" onClick={changeDrawer} to="/flower">گل</Link>
-       <Link style={{display:menu ?'none':'block'}} className="Draweritems" >لوتزم خانگی</Link>
-       <Link style={{display:menu ?'none':'block'}} className="Draweritems" >آرایشی و بهداشتی</Link>
-       <Link style={{display:menu ?'none':'block'}} className="Draweritems"  onClick={changeDrawer} to="/Computer" > کامپیوتر و لپ تاپ</Link>
-       <Link style={{display:menu ?'none':'block'}} className="Draweritems" >لوازم جانبی دیجیتال</Link>
+       <Link style={{display:menu ?'none':'block',textDecoration:'none'}} className="Draweritems" onClick={()=>changeDrawer(book)} >لوتزم خانگی</Link>
+       <Link style={{display:menu ?'none':'block',textDecoration:'none'}} className="Draweritems" >آرایشی و بهداشتی</Link>
+       <Link style={{display:menu ?'none':'block',textDecoration:'none'}} className="Draweritems"  onClick={changeDrawer} to="/Computer" > کامپیوتر و لپ تاپ</Link>
+       <Link style={{display:menu ?'none':'block',textDecoration:'none'}} className="Draweritems" >لوازم جانبی دیجیتال</Link>
+       <Link style={{display:menu ?'none':'block',textDecoration:'none'}} className="Draweritems" onClick={changeDrawer} to="/flower">گل</Link>
+       <Link style={{display:menu ?'none':'block',textDecoration:'none'}} className="Draweritems" >لوتزم خانگی</Link>
+       <Link style={{display:menu ?'none':'block',textDecoration:'none'}} className="Draweritems" >آرایشی و بهداشتی</Link>
+       <Link style={{display:menu ?'none':'block',textDecoration:'none'}} className="Draweritems"  onClick={changeDrawer} to="/Computer" > کامپیوتر و لپ تاپ</Link>
+       <Link style={{display:menu ?'none':'block',textDecoration:'none'}} className="Draweritems" >لوازم جانبی دیجیتال</Link>
    
    </div>
    

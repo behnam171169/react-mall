@@ -3,12 +3,13 @@ import './login.css';
 import ReCAPTCHA from "react-google-recaptcha";
 import { Link } from 'react-router-dom';
 import Spiner from './../../spinner/spinner';
+import api from './../../../htpp/api';
 import {Stufflistcontext} from './../../../context/stufflistcontext';
 const Login=(props)=>{
   const [username, setusername] = useState('');
   const [password, setpassword] = useState('');
   const [errors, seterrors] = useState('');
-  const [recaptcha,setRecaptcha]=useState('');
+  const [recaptcha,setRecaptcha]=useState(true);
   const [check,setcheck]=useState(false);
   const [showspiner,setShowspiner]=useState(false);
   const {changesearchbar}=useContext(Stufflistcontext)
@@ -56,7 +57,7 @@ const Login=(props)=>{
       seterrors('')
       setShowspiner(true)
       return(
-        fetch('http://localhost:3000/auth/login',{
+        fetch(`${api.api}/auth/login`,{
         method:'POST',
         headers:{
           'Accept':'application/json',
@@ -120,9 +121,10 @@ const Login=(props)=>{
       ورود
       </button>
       <div className="cl" style={{display:'flex',justifyContent:'spacebetween'}}>
-      <Link to={'./reset'}>فراموشی رمز عبور</Link>
-      <text >کاربر جدید هستید<Link onClick={goregister}>ثبت نام کنید</Link></text>
+     
+      <text >کاربر جدید هستید<Link style={{textDecoration:'none'}} onClick={goregister}>ثبت نام کنید</Link></text>
       </div>
+      <Link style={{textDecoration:'none'}} to={'./reset'}>فراموشی رمز عبور</Link>
       </div>
       )
     }

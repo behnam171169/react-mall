@@ -9,6 +9,7 @@ background-color: white;
     padding-top: 20px;
     box-sizing: border-box;
 display: block;
+border-radius: 10px;
 }
 .questions input{
     direction: ltr;
@@ -84,10 +85,10 @@ text-align: right;
         width: 80vw;
     } 
 }
-@media(max-width:1000px){
+@media(max-width:800px){
     .questions button{
         font-size:15;
-        width: 30%;
-        margin-left:65%;
+        width: 90%;
+        margin-left:5%;
     } 
 }

@@ -1,12 +1,13 @@
 import React, { Component, useEffect ,useState,useContext} from 'react'
 import axios from 'axios';
 import './admincomments.css'
+import api from './../../../../htpp/api';
 import {mainContext} from './../../../../context/mainContext';
 const Admincomments=()=>{
     const [commets, setcommets] = useState([])
     const {admin}=useContext(mainContext)
     useEffect(()=>{
-        axios.get('http://localhost:3000/admin/comments', { 
+        axios.get(`${api.api}/admin/comments`, { 
     })
     .then((response)=>{
         setcommets(response.data)
@@ -14,7 +15,7 @@ const Admincomments=()=>{
     })
 },[]);
 const check=(id)=>{
-    axios.put(`http://localhost:3000/admin/commentsok/${id}`, { 
+    axios.put(`${api.api}/admin/commentsok/${id}`, { 
 })
 .then((response)=>{
     if(response.status==200){
@@ -24,7 +25,7 @@ const check=(id)=>{
 })
 }
 const deletcomment=(id)=>{
-    axios.delete(`http://localhost:3000/admin/commentsdelete/${id}`, { 
+    axios.delete(`${api.api}/admin/commentsdelete/${id}`, { 
 })
 .then((response)=>{
     if(response.status==200){

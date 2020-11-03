@@ -3,6 +3,7 @@ import axios from 'axios';
 import './order.css'
 import { Link } from 'react-router-dom';
 import {mainContext} from './../../../context/mainContext'
+import api from './../../../htpp/api';
 const Orders=(props)=>{
     const [namecusttomer, setnamecusttomer] = useState([ ])
     const {admin}=useContext(mainContext)
@@ -25,7 +26,7 @@ props.history.push({
     }
     useEffect(() => {
         // setid(props.location.state.id);
-        axios.post('http://localhost:3000/admin/orders', { 
+        axios.post(`${api.api}/admin/orders`, { 
         }).then((response)=>{
   console.log((response.data),'8888')
     setnamecusttomer(response.data)

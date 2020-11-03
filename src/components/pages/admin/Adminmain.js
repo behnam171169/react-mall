@@ -5,7 +5,7 @@ import {Link} from 'react-router-dom';
 import {mainContext} from './../../../context/mainContext';
 import {withRouter} from 'react-router-dom';
 import Swal from 'sweetalert2';
-
+import api from '../../../htpp/api';
 const Adminmain=(props)=>{
   const {admin}=useContext(mainContext)
 const [titels, settitels] = useState('');
@@ -91,7 +91,7 @@ seterrors('لطفا دسته بندی را مشخص کنید')
     Images.append('numberinpuckets',numberinpuckets);
     Images.append('memorys',memorys);
     Images.append('user',userid);
-    axios.post('http://localhost:3000/admin/course/create',Images, { 
+    axios.post(`${api.api}/admin/course/create`,Images, { 
   
     }).then((response)=>{
       // const data = await response.json();
@@ -115,7 +115,7 @@ seterrors('لطفا دسته بندی را مشخص کنید')
 // }
 }
  const sendmessage=()=>{
-  axios.post('http://localhost:3000/auth/sendmessage', { 
+  axios.post(`${api.api}/auth/sendmessage`, { 
   })
   .then((response)=>{
  
@@ -142,7 +142,7 @@ seterrors('لطفا دسته بندی را مشخص کنید')
       
       </div> 
  
-      {/* <form className="createpost"  action="http://localhost:3000/admin/course/create" method="POST" enctype="multipart/form-data"> */}
+      {/* <form className="createpost"  action="${api.api}/admin/course/create" method="POST" enctype="multipart/form-data"> */}
       <div  className="createpost">
 
   

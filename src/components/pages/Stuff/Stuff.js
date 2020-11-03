@@ -1,6 +1,7 @@
 import React, { Component,useEffect,useState,useContext } from 'react'
 import axios from 'axios';
 import './Stuff.css';
+import api from './../../../htpp/api';
 import Spiner from './../../spinner/spinner';
 import {Link} from 'react-router-dom';
 import {mainContext} from './../../../context/mainContext';
@@ -18,7 +19,7 @@ const Stuff=(props)=>{
         setShowspiner(true)
     const  dataa=  [ props.location.state[0],props.location.state[1]]
         const data=JSON.stringify(dataa)  
-        axios.get(`http://localhost:3000/allstuff/${dataa}`, { 
+        axios.get(`${api.api}/allstuff/${dataa}`, { 
       
     })
     .then((response)=>{
@@ -41,7 +42,7 @@ const deletok=()=>{
     window.location.reload({forcedReload:true});
 }
 const deletedata=(id)=>{
-    axios.delete(`http://localhost:3000/admin/course/${id}`)
+    axios.delete(`${api.api}/admin/course/${id}`)
     .then(res => {
         if(res.status ==200){
             deletok();

@@ -9,6 +9,7 @@ import {Stufflistcontext} from './../../../context/stufflistcontext';
 import './Question.css';
 import Dropdown3 from './../../Dropdown/Dropdown3/Dropdown3';
 import Swal from 'sweetalert2'
+import api from './../../../htpp/api';
 const Question=(props)=>{
   const {changesearchbar,modal}=useContext(Stufflistcontext)
   const {login}=useContext(mainContext)
@@ -19,7 +20,7 @@ const Question=(props)=>{
   const userid=localStorage.getItem('user');
   useEffect(()=>{
     changesearchbar(false)
-    axios.get(`http://localhost:3000/myquestionanswer/${userid}`, { 
+    axios.get(`${api.api}/myquestionanswer/${userid}`, { 
     })
     .then((response)=>{
 if(response.status==200){
@@ -44,7 +45,7 @@ if(response.status==200){
       
       return(
         setShowspiner(true),
-        fetch('http://localhost:3000/customerquestion',{
+        fetch(`${api.api}/customerquestion`,{
         method:'POST',
         headers:{
           'Accept':'application/json',
@@ -102,7 +103,7 @@ if(response.status==200){
       <text>ابتدا به حساب کاربری خود وارد شوید</text>
                         </div>
                        
-      <div className="questions">
+      <div  className="questions">
       <text  style={{marginTop:10,marginBottom:20,display:'block'}}>09106861071پشتیبانی</text> 
 
       <div className="errorresetpassword" style={{display:errors.length<1?'none':'',}}>
@@ -111,7 +112,7 @@ if(response.status==200){
      
       <input type="email" placeholder="سوالی دارید؟" onChange={question} />
 
-      <button onClick={sabt}>
+      <button className="questionsbutton" onClick={sabt}>
     ثبت
       </button>
      

@@ -9,6 +9,7 @@ import { FaCaretUp,FaSortDown } from "react-icons/fa";
 import Towns from './../../pages/towns/towns';
 import City from './../citys/city';
 import Swal from 'sweetalert2'
+import api from './../../../htpp/api';
 import MapboxLanguage from '@mapbox/mapbox-gl-language';
 import MapboxGeocoder from '@mapbox/mapbox-gl-geocoder';
 var mapboxgl = require('mapbox-gl/dist/mapbox-gl.js');
@@ -32,7 +33,7 @@ const Customerdetail=(props)=>{
   // console.log(userid,'kkk')
   useEffect(()=>{
     
-    axios.get(`http://localhost:3000/getreciverdetails/${id}`,{ 
+    axios.get(`${api.api}/getreciverdetails/${id}`,{ 
   }).then((response)=>{
     console.log(response.data[0],'jj')
     if(response.status==200){
@@ -139,7 +140,7 @@ useEffect(()=>{
           province:customertowns
         }
         const data=JSON.stringify(dataa);
-        axios.put(`http://localhost:3000/editreciverdetails/${userid}`,data , { 
+        axios.put(`${api.api}/editreciverdetails/${userid}`,data , { 
       })
       .then(
         (response)=>{

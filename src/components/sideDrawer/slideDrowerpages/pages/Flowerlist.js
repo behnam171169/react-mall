@@ -13,9 +13,9 @@ const Flowerlist=(props)=>{
         })
     }
     return(
-        <div>
+        <div >
         {stufflist.map((data)=>
-            <button onClick={()=>selectstuff(data)} className="menulistbutton">
+            <button  onClick={()=>selectstuff(data)} className="menulistbutton">
             <text>{data[0]}</text>
             </button>
             )

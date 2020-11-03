@@ -8,7 +8,8 @@ import { IconContext } from "react-icons";
 import { FaCaretUp,FaSortDown } from "react-icons/fa";
 import Towns from './../../pages/towns/towns';
 import City from './../citys/city';
-import Swal from 'sweetalert2'
+import Swal from 'sweetalert2';
+import api from './../../../htpp/api';
 import MapboxLanguage from '@mapbox/mapbox-gl-language';
 import MapboxGeocoder from '@mapbox/mapbox-gl-geocoder';
 import MapContainer from '../map/map';
@@ -33,7 +34,7 @@ const Customerdetail=(props)=>{
   // console.log(userid,'kkk')
   useEffect(()=>{
     
-    axios.get(`http://localhost:3000/checkreciverdetails/${userid}`, { 
+    axios.get(`${api.api}/checkreciverdetails/${userid}`, { 
   })
   .then((response)=>{
     if(response.status==200){
@@ -145,7 +146,7 @@ const sabt=()=>{
         location:coordinate,
       }
       const data=JSON.stringify(dataa);
-      axios.post('http://localhost:3000/reciverdetails',data, { 
+      axios.post('${api.api}/reciverdetails',data, { 
     }).then((response)=>{
       if(response.status==200){
         props.history.push('/Pay')

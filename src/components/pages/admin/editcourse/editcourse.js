@@ -1,13 +1,14 @@
 import React, { Component,useState,useContext,useEffect } from 'react'
 import  './editcourse.css';
 import axios from 'axios';
+import api from './../../../../htpp/api';
 import {mainContext} from './../../../../context/mainContext';
 const Editcourse=(props)=>{
 
   useEffect(() => {
     const {id} = props.location.state;
     setid(id)
-    axios.get(`http://localhost:3000/detail/${id}`, { 
+    axios.get(`${api.api}/detail/${id}`, { 
     })
     .then((response)=>{
       console.log(response,'popo')
@@ -95,7 +96,7 @@ const dataa={
  memorys:memorys
 }
 const data=JSON.stringify(dataa)
-    axios.put(`http://localhost:3000/admin/course/edit/${id}`,data).then((response)=>{ 
+    axios.put(`${api.api}/admin/course/edit/${id}`,data).then((response)=>{ 
       if(response.status ==200){
         gocourse()
  seterrors('')
@@ -119,7 +120,7 @@ const data=JSON.stringify(dataa)
         <a href="#">دوره ها</a>
       </div> */}
  
-      {/* <form className="createpost"  action="http://localhost:3000/admin/course/create" method="POST" enctype="multipart/form-data"> */}
+      {/* <form className="createpost"  action="${api.api}/admin/course/create" method="POST" enctype="multipart/form-data"> */}
       <div  className="editpost">
 
 
