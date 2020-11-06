@@ -9,6 +9,7 @@ const Courses=(props)=>{
 const [data, setdata] = useState([]);
 const[message,setMessage]=useState('');
 const {admin}=useContext(mainContext)
+console.log(props.location.state,'nnnn')
 console.log(data,'vvvv')
 const checkdata=(id)=>{
     axios.put(`${api.api}/admin/courses/check/${id}`, {  

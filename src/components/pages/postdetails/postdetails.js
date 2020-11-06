@@ -14,12 +14,12 @@ const userid=localStorage.getItem('user');
   const {login,admin}=useContext(mainContext);
   const [postsdetail, setpostsdetail] = useState([])
   const[comments,setcomments]=useState([]);
-  const [id,setid]=useState(props.location.state.id);
+  const [id,setid]=useState(props.location.state._id);
   console.log(id,'pppppp')
   // console.log(postsdetail.color,'gghhhhgghhh')
   const[number,setnumber]=useState(1);
   const [showspiner,setShowspiner]=useState(false);
-  const image=props.location.state.image;
+  const data=props.location.state;
 
   const plusnumber=()=>{
     setnumber(number+1)
@@ -43,34 +43,42 @@ const userid=localStorage.getItem('user');
     }
   })
 }
-useEffect(() => {
+// useEffect(() => {
   
-  setShowspiner(true)
-  axios.get(`${api.api}/detail/${id}`, { 
-})
-.then((response)=>{
-  if(response.status==200){
-    setShowspiner(false)
-    setpostsdetail(response.data[0])
-  }else if(response.status==400){
-    setShowspiner(false)
-    alert('جزییات موجود نمی باشد')
-  }else if(response.status==500){
-    setShowspiner(true)
-    alert('خطا در ارتباط با سرور')
-  }
-}
+//   setShowspiner(true)
+//   axios.get(`${api.api}/detail/${id}`, { 
+// })
+// .then((response)=>{
+//   if(response.status==200){
+//     setShowspiner(false)
+//     setpostsdetail(response.data[0])
+//   }else if(response.status==400){
+//     setShowspiner(false)
+//     alert('جزییات موجود نمی باشد')
+//   }else if(response.status==500){
+//     setShowspiner(true)
+//     alert('خطا در ارتباط با سرور')
+//   }
+// }
 
-)
-},[])
+// )
+// },[])
 
 useEffect(() => {
+  window.scrollTo({
+    top: 0,
+    behavior: "auto"
+  });
+setShowspiner(true)
   axios.get(`${api.api}/comments/${id}`, { 
 })
 .then((response)=>{
   if(response.status==200){
     setcomments(response.data)
-    
+setShowspiner(false)
+
+  }else if(response.status==400){
+    setShowspiner(false)
   }
 }
 )
@@ -99,7 +107,7 @@ const buy=()=>{
         icon: 'success',
         confirmButtonText: 'متوجه شدم',
       })
-      
+      props.history.goBack();
     }
   }
   )
@@ -112,23 +120,24 @@ value={{ color: '#F79F1F', size: '25px'}}>
 
 return(
   <div style={{display:'flex',flexDirection:'column'}}>
-
+ 
   <div className="mainpostdetails">
-  <img src={`${api.api}${image}`} className="postdetailimage" />
+ 
+  <img src={`${api.api}${data.images}`} className="postdetailimage" />
   <div className="detailpost">
   <div style={{display:'flex'}}>
   <text style={{marginBottom:40,color:'green',fontWeight:500}}>   نام کالا:   </text>
-  <text style={{marginLeft:5,marginRight:5}}>{postsdetail.title}</text>
+  <text style={{marginLeft:5,marginRight:5}}>{data.title}</text>
   </div>
-  <text style={{display:(''+postsdetail.memorys).length<1?'none':'flex'}}   className="datadetailtext">حافظه داخلی:{postsdetail.memorys}</text>
-  <text style={{display:(''+postsdetail.color).length<1?'none':'flex'}}  className="datadetailtext">رنگ:{postsdetail.color}</text>
-  <text style={{display:(''+postsdetail.weight).length<1?'none':'flex'}}  className="datadetailtext">وزن:{postsdetail.weight}</text>
-  <text style={{display:(''+postsdetail.country).length<1?'none':'flex'}}  className="datadetailtext">کشور سازنده:{postsdetail.country}</text>
-  <text style={{display:(''+postsdetail.garantis).length<1?'none':'flex'}}  className="datadetailtext">گارانتی:{postsdetail.garantis}</text>
-  <text style={{display:(''+postsdetail.numberinpuckets).length<1?'none':'flex'}}  className="datadetailtext">تعداد در بسته:{postsdetail.numberinpuckets}</text>
+  <text style={{display:(''+postsdetail.memorys).length<1?'none':'flex'}}   className="datadetailtext">حافظه داخلی:{data.memorys}</text>
+  <text style={{display:(''+postsdetail.color).length<1?'none':'flex'}}  className="datadetailtext">رنگ:{data.color}</text>
+  <text style={{display:(''+postsdetail.weight).length<1?'none':'flex'}}  className="datadetailtext">وزن:{data.weight}</text>
+  <text style={{display:(''+postsdetail.country).length<1?'none':'flex'}}  className="datadetailtext">کشور سازنده:{data.country}</text>
+  <text style={{display:(''+postsdetail.garantis).length<1?'none':'flex'}}  className="datadetailtext">گارانتی:{data.garantis}</text>
+  <text style={{display:(''+postsdetail.numberinpuckets).length<1?'none':'flex'}}  className="datadetailtext">تعداد در بسته:{data.numberinpuckets}</text>
   
   <text style={{marginBottom:15,color:'green',fontWeight:500}}>توضیحات:</text>
-  <text>{postsdetail.explains}</text>
+  <text>{data.explains}</text>
   </div>
   
   
@@ -137,12 +146,12 @@ return(
   <div style={{display:'flex',marginTop:20}}>
   
   <text style={{marginBottom:40,color:'green',fontWeight:500}}> قیمت: </text>
-  <text style={{marginRight:5,marginLeft:5,color:'red'}}>{postsdetail.prices}</text>
+  <text style={{marginRight:5,marginLeft:5,color:'red'}}>{data.prices}</text>
   <text style={{marginBottom:40,color:'green',fontWeight:500}}> تومان    </text>
   
   </div>
-  <div style={{display:'flex',flexDirection:'column',alignItems:'center'}}>
-  <div style={{display:props.location.state.count>=1?'flex':'none'}} className="changenumber" >
+  <div style={{display:'flex',flexDirection:'column'}}>
+  <div style={{display:data.buyCount>=1?'flex':'none'}} className="changenumber" >
   <text>تعداد:</text>
   
   <IconContext.Provider
@@ -156,7 +165,7 @@ return(
   </IconContext.Provider>
   </div>
   
-  <button style={{display:props.location.state.count>=1?'flex':'none'}} onClick={buy} className="buttonbuy"><text>{buyicon}</text>افزودن به سبد خرید</button>
+  <button style={{display:data.buyCount>=1?'flex':'none'}} onClick={buy} className="buttonbuy"><text>{buyicon}</text>افزودن به سبد خرید</button>
   </div>
   </div>
   
@@ -166,13 +175,16 @@ return(
   <Link className="talkcreate"  to={{
     pathname: "/createcomment",
     state: {
-      id:props.location.state.id
+      id:props.location.state.id,
+      image:data.images
     }
   }}>ثبت نظر</Link>
   <text  className="talktext">نظرات</text>
   
   </div>
-  
+  <div style={{display:showspiner?'flex':'none',marginTop:20}}>
+  <Spiner/>
+  </div>
   <div className="maincomments">
   {comments.map((comment)=>
     <div className="comments">
@@ -189,9 +201,7 @@ return(
     </div>
     
     </div>
-    <div style={{display:showspiner?'flex':'none'}}>
-  <Spiner/>
-  </div>
+   
     </div>
     )
   }

@@ -2,18 +2,19 @@
 
 
 section {
-  width: 80%;
-  height: 50vh;
+  width: 60%;
+  height: 300px;
   background: #ccc;
 margin-top: 5px;
   padding: 0;
-
+  border-radius: 15px;
 }
 
 .slide-show-container {
   height: 100%;
   width: 100%;
   position: relative;
+  border-radius: 15px;
 }
 /* CSS Styles in common for all slides */
 /* .wrapper-one,
@@ -34,6 +35,7 @@ margin-top: 5px;
   height: 100%;
   width: 100%;
   position: absolute;
+  border-radius: 15px;
     /* background-image: url("https://tse4.mm.bing.net/th?id=OIP.KX82hFNecgRpUuhY52QdogHaHa&pid=Api&P=0&w=300&h=300"); */
 }
 
@@ -41,6 +43,7 @@ margin-top: 5px;
   position: absolute;
   height: 100%;
   width: 100%;
+  border-radius: 15px;
     /* background-image: url("http://placeimg.com/625/225/arch"); */
   animation: slideTwoAnim 20s infinite;
 
@@ -52,6 +55,7 @@ margin-top: 5px;
   width: 100%;
     /* background-image: url("http://www.stnlatam.com/images/pitch/pitch3.jpg"); */
   animation: slideThreeAnim 20s infinite;
+  border-radius: 15px;
 }
 
 /* Styles for the text */
@@ -91,11 +95,18 @@ margin-top: 5px;
 
 @media screen and (max-width: 600px) {
   section{
-height: 200px;
+height: 150px;
+width: 80%;
   }
  
  }
-
+ @media screen and (max-width: 800px) {
+  section{
+height: 200px;
+width: 80%;
+  }
+ 
+ }
 
 
 

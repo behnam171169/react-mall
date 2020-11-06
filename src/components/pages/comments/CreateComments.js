@@ -9,6 +9,7 @@ const CreateComment=(props)=>{
     const [comment, setcomment] = useState('')
     const[error,seterror]=useState('')
     const [showspiner,setShowspiner]=useState(false);
+    const image=props.location.state.image;
     const changename=(event)=>{
         setname(event.target.value)
     }
@@ -41,7 +42,10 @@ const CreateComment=(props)=>{
                 setShowspiner(false)
                 props.history.push({
                     pathname: '/postdetails',
-                    state: { id:props.location.state.id}
+                    state: { 
+                        id:props.location.state.id,
+                        images:image
+                    }
                 })
             }else if(response.status==400){
                 Swal.fire({

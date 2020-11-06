@@ -1,6 +1,6 @@
 
 const api ={
-    api:'http://localhost:3000'
+    api:'https://myapp-node.liara.run'
 }
 
 export default api;

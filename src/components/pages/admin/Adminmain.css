@@ -11,10 +11,10 @@ flex-direction: column;
 
 margin-right: 20%;
 }
-.inputs{
+.createpostinputs{
   padding: 15px;
   border: 1px solid black;
-  width: 50vw;
+width: 65vw;
   border-radius: 10px;
   direction: rtl;
   margin-bottom: 10px;
@@ -54,7 +54,7 @@ margin-top: 10px;
   background-color: green;
 }
 .fileinput{
-  padding: 15px;
+  padding: 9px;
   border: 1px solid black;
   width: 50vw;
   border-radius: 10px;
@@ -100,8 +100,15 @@ right: 0px;
 .vertical-menu a.active {
   background-color: #4CAF50;
   color: white;
+
 }
   .error{
     background-color: brown;
     padding: 5%;
+  }
+
+  @media screen and (max-width: 499px) {
+    .vertical-menu a.active{
+      font-size: 12px;
+    }
   }

@@ -17,10 +17,9 @@ const Stuff=(props)=>{
     useEffect(()=>{
         changesearchbar(true)
         setShowspiner(true)
-    const  dataa=  [ props.location.state[0],props.location.state[1]]
+    const  dataa=  [props.location.state[0],props.location.state[1]]
         const data=JSON.stringify(dataa)  
         axios.get(`${api.api}/allstuff/${dataa}`, { 
-      
     })
     .then((response)=>{
         setShowspiner(false)
@@ -85,15 +84,12 @@ return(
          to={{
              
             pathname:'/postdetails',
-            state: {
-                id:dataa._id,
-                count:dataa.buyCount
-            }
+            state:dataa
         }}
   
         >
-          <div className="mainstuffcard">
-        <img src="https://www.beytoote.com/images/stories/housekeeping/hou16389.jpg" className="flowerImage" />
+          
+        <img src={`${api.api}${dataa.images}`} className="flowerImage" />
         <div style={{display:(dataa.buyCount) >=1?'flex':'none',alignItems:'center',flexDirection:'column'}}>
         <text >{dataa.title}</text>
         <div className="flowerprice">
@@ -105,7 +101,7 @@ return(
         alignItems:'center',flexDirection:'column',marginTop:5,marginBottom:10}}>
             <text>در انبار موجود نیست</text>
         </div>
-        </div>
+       
         </Link>
         <div style={{display:admin ?'flex':'none'}} className="mainfloweradmin" >
         <Link className="adminedit" to={{

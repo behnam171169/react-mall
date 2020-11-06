@@ -89,16 +89,13 @@ return(
 
 
 {data.map((dataa)=>
-    <div className="flowercards">
+    <div className="flowercardshome">
     <Link to={{
         pathname: '/postdetails',
-        state: {
-            id:dataa._id,
-            image:dataa.images
-        }
+        state:dataa,
     }}>
-    <div className="mainstuffcard">
-    <img src={`${api.api}${dataa.images}`} className="flowerImage" />
+  
+    <img src={`${api.api}${dataa.images}`} className="flowerImagehome" />
     <div style={{display:'flex',alignItems:'center',flexDirection:'column'}}>
     <text >{dataa.title}</text>
     <div className="flowerprice">
@@ -106,7 +103,7 @@ return(
     <text style={{color:'#009432'}}>{dataa.prices}</text>
     </div> 
     </div> 
-    </div>
+   
     </Link>
     
     

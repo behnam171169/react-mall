@@ -79,7 +79,6 @@ seterrors('لطفا دسته بندی را مشخص کنید')
 
   const Images = new FormData();
     Images.append('file',images);
-   
     Images.append('title',titels);
     Images.append('prices',prices);
     Images.append('explains',explains);
@@ -91,7 +90,7 @@ seterrors('لطفا دسته بندی را مشخص کنید')
     Images.append('numberinpuckets',numberinpuckets);
     Images.append('memorys',memorys);
     Images.append('user',userid);
-    axios.post(`${api.api}/admin/course/create`,Images, { 
+    axios.post(`${api.api}/admin/course/create`,Images,{ 
   
     }).then((response)=>{
       // const data = await response.json();
@@ -114,13 +113,7 @@ seterrors('لطفا دسته بندی را مشخص کنید')
 
 // }
 }
- const sendmessage=()=>{
-  axios.post(`${api.api}/auth/sendmessage`, { 
-  })
-  .then((response)=>{
  
-  })
- }
      return(
       <div>
         <div style={{display:admin?'none':'flex',justifyContent:'center',alignItems:'center',marginTop:25}}>
@@ -151,16 +144,15 @@ seterrors('لطفا دسته بندی را مشخص کنید')
        <text > {errors}</text>
        </div>
      
-       <button onClick={()=>sendmessage()}>oooo</button>
-       <input type="text" placeholder="عنوان پست " className="inputs" onChange={title}/>
-       <input type="text" placeholder="قیمت" className="inputs" onChange={price} name="price"  />
-       <input type="text" placeholder="وزن به گرم" className="inputs" onChange={weight} />
-       <input type="text" placeholder="رنگ" className="inputs" onChange={color} />
-       <input type="text" placeholder="کشور سازنده" className="inputs" onChange={country} />
-       <input type="text" placeholder="گارانتی(به ماه)" className="inputs" onChange={garanti} />
-       <input type="text" placeholder="تعداد در بسته" className="inputs" onChange={numberinpucket} />
-       <input type="text" placeholder="حافظه داخلی" className="inputs" onChange={memory} />
-       <textarea  type="text" placeholder="توضیحات "  className="inputs" onChange={explain} name="explain" >
+       <input type="text" placeholder="عنوان پست " className="createpostinputs" onChange={title}/>
+       <input type="text" placeholder="قیمت" className="createpostinputs" onChange={price} name="price"  />
+       <input type="text" placeholder="وزن به گرم" className="createpostinputs" onChange={weight} />
+       <input type="text" placeholder="رنگ" className="createpostinputs" onChange={color} />
+       <input type="text" placeholder="کشور سازنده" className="createpostinputs" onChange={country} />
+       <input type="text" placeholder="گارانتی(به ماه)" className="createpostinputs" onChange={garanti} />
+       <input type="text" placeholder="تعداد در بسته" className="createpostinputs" onChange={numberinpucket} />
+       <input type="text" placeholder="حافظه داخلی" className="createpostinputs" onChange={memory} />
+       <textarea  type="text" placeholder="توضیحات "  className="createpostinputs" onChange={explain} name="explain" >
 
 
        </textarea>

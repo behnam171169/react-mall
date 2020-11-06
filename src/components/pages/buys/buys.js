@@ -98,14 +98,15 @@ const  customer=()=>{
 return(
    
    <div>
-                <div style={{opacity:modal?'0':'1',zIndex:1,marginTop:60}}  className="dropdownmenu">
+   <div style={{opacity:modal?'0':'1',zIndex:1,marginTop:60}}  className="dropdownmenu">
     <Dropdown3 /> 
     </div>
+    
    <div style={{display:login?'flex':'none'}}  className="mainbuys">
    <div style={{display:buydata.length<1?'flex':'none',marginTop:100,justifyContent:'center'}}>
    <text >سبدخرید شما خالیست</text>
    </div>
-   <div className="spiner"  style={{opacity:showspinner? 1 :0}}>
+   <div className="spinnerbuy"  style={{display:showspinner?'block' :'none'}}>
    <Spinner/>
    </div>
    {buydata.map((data)=>
@@ -114,7 +115,7 @@ return(
       <div  className="buydetail">
          <div className="postdetail">
       <div className="mainimagebuy">
-      <img src="https://www.beytoote.com/images/stories/housekeeping/hou16389.jpg" className="buysImage" />
+      <img  src={`${api.api}${data.images}`} className="buysImage" />
       </div>
       <div className="buystitle">
       <text className="buytitletext"> <span style={{color:'#44bd32',fontWeight:'bold'}}>نام کالا:</span>{data.title}</text>
