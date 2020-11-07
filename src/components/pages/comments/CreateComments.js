@@ -9,7 +9,7 @@ const CreateComment=(props)=>{
     const [comment, setcomment] = useState('')
     const[error,seterror]=useState('')
     const [showspiner,setShowspiner]=useState(false);
-    const image=props.location.state.image;
+    const dataa=props.location.state;
     const changename=(event)=>{
         setname(event.target.value)
     }
@@ -26,7 +26,7 @@ const CreateComment=(props)=>{
             const   data=JSON.stringify({
                 name:name,
                 comment:comment,
-                course:props.location.state.id
+                course:props.location.state._id
             })
             
             axios.post(`${api.api}/createcomment`,data, { 
@@ -42,10 +42,7 @@ const CreateComment=(props)=>{
                 setShowspiner(false)
                 props.history.push({
                     pathname: '/postdetails',
-                    state: { 
-                        id:props.location.state.id,
-                        images:image
-                    }
+                    state:dataa
                 })
             }else if(response.status==400){
                 Swal.fire({

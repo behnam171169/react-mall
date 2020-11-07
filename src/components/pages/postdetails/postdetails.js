@@ -126,17 +126,17 @@ return(
   <img src={`${api.api}${data.images}`} className="postdetailimage" />
   <div className="detailpost">
   <div style={{display:'flex'}}>
-  <text style={{marginBottom:40,color:'green',fontWeight:500}}>   نام کالا:   </text>
+  <text className="maindetailtext" >   نام کالا:   </text>
   <text style={{marginLeft:5,marginRight:5}}>{data.title}</text>
   </div>
-  <text style={{display:(''+postsdetail.memorys).length<1?'none':'flex'}}   className="datadetailtext">حافظه داخلی:{data.memorys}</text>
-  <text style={{display:(''+postsdetail.color).length<1?'none':'flex'}}  className="datadetailtext">رنگ:{data.color}</text>
-  <text style={{display:(''+postsdetail.weight).length<1?'none':'flex'}}  className="datadetailtext">وزن:{data.weight}</text>
-  <text style={{display:(''+postsdetail.country).length<1?'none':'flex'}}  className="datadetailtext">کشور سازنده:{data.country}</text>
-  <text style={{display:(''+postsdetail.garantis).length<1?'none':'flex'}}  className="datadetailtext">گارانتی:{data.garantis}</text>
-  <text style={{display:(''+postsdetail.numberinpuckets).length<1?'none':'flex'}}  className="datadetailtext">تعداد در بسته:{data.numberinpuckets}</text>
+  <text style={{display:(''+data.memorys).length<1?'none':'flex'}}  className="detailtext">حافظه داخلی:<span className="detailtextspan">{data.memorys}</span></text>
+  <text style={{display:(''+data.color).length<1?'none':'flex'}}  className="detailtext">رنگ:<span className="detailtextspan">{data.color}</span></text>
+  <text style={{display:(''+data.weight).length<1?'none':'flex'}}  className="detailtext">وزن:<span className="detailtextspan">{data.weight}</span></text>
+  <text style={{display:(''+data.country).length<1?'none':'flex'}}  className="detailtext">کشور سازنده:<span className="detailtextspan">{data.country}</span></text>
+  <text style={{display:(''+data.garantis).length<1?'none':'flex'}}  className="detailtext">گارانتی:<span className="detailtextspan">{data.garantis}</span></text>
+  <text style={{display:(''+data.numberinpuckets).length<1?'none':'flex'}}  className="detailtext">تعداد در بسته:<span className="detailtextspan">{data.numberinpuckets}</span></text>
   
-  <text style={{marginBottom:15,color:'green',fontWeight:500}}>توضیحات:</text>
+  <text className="maindetailtext" >توضیحات:</text>
   <text>{data.explains}</text>
   </div>
   
@@ -174,10 +174,7 @@ return(
   <div className="customertalk" >
   <Link className="talkcreate"  to={{
     pathname: "/createcomment",
-    state: {
-      id:props.location.state.id,
-      image:data.images
-    }
+    state:data
   }}>ثبت نظر</Link>
   <text  className="talktext">نظرات</text>
   

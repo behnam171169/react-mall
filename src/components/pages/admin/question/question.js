@@ -87,7 +87,7 @@ const AdminQuestion=(props)=>{
      <div style={{opacity:modal?'0':'1',zIndex:1,marginTop:60}}  className="dropdownmenu">
     <Dropdown3 /> 
     </div>
-      <div style={{display:admin?'none':'block',justifyContent:'center',alignItems:'center',marginTop:20}}>
+      <div style={{display:admin?'none':'flex',justifyContent:'center',alignItems:'center',marginTop:20}}>
       <text>شما مدیر نیستید</text>
    </div>
   

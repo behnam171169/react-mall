@@ -15,20 +15,21 @@ const HomePage=()=>{
     const {login,username,admin}=useContext(mainContext)
     const {modal,changemodal}=useContext(Stufflistcontext)
     const [showspiner,setShowspiner]=useState(false);
-    const [data, setdata] = useState([])
+
+    const [maindataa, setmaindataa] = useState([])
+    
+    const [data, setdata] = useState(maindataa)
     const [searchtext, setSerchtext] = useState('')
+
     
     const serchdata=(event)=>{
         const textData=event.target.value;
-        const itemData=data.filter((item)=>{
+        const itemData=maindataa.filter((item)=>{
             const itemDataa=item.title;
             return itemDataa.indexOf(textData)>-1
         })
-        
         setdata(itemData)
-        setSerchtext(event.target.value)
-        
-        
+        setSerchtext(event.target.value)    
     }
     useEffect(()=>{
         axios.get(`${api.api}/all`, { 
@@ -37,6 +38,7 @@ const HomePage=()=>{
         setShowspiner(false)
         console.log(response.data,'hhh')
         if(response.status==200){
+            setmaindataa(response.data)
             setdata(response.data)
         }else if(response.status==400){
             setShowspiner(false)
