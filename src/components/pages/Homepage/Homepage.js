@@ -92,7 +92,7 @@ return(
 
 {data.map((dataa)=>
     <div className="flowercardshome">
-    <Link to={{
+    <Link style={{textDecoration:'none'}} to={{
         pathname: '/postdetails',
         state:dataa,
     }}>

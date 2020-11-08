@@ -5,6 +5,7 @@ import api from './../../../htpp/api';
 import Spiner from './../../spinner/spinner';
 import {Link} from 'react-router-dom';
 import {mainContext} from './../../../context/mainContext';
+import {withRouter} from 'react-router-dom';
 import {Stufflistcontext} from './../../../context/stufflistcontext';
 import Dropdown3 from './../../Dropdown/Dropdown3/Dropdown3'
 import { IconContext } from "react-icons";
@@ -142,4 +143,4 @@ return(
     </div>
     </React.Fragment>
     )}
-    export default Stuff;
+    export default withRouter(Stuff) ;

@@ -97,7 +97,7 @@ width: 80%;
 
 }
 .flowerImage{
-     transition:transform 1s ;
+     /* transition:transform 1s ; */
     width:100%;
     height:30vh;
     border-top-left-radius: 15px;
@@ -116,9 +116,9 @@ display:flex;
 justify-content: center;
 margin: 1vh;
 }
-.flowerImage:hover {
+/* .flowerImage:hover {
     transform: scale(1.05);
-}
+} */
 
 @media screen and (max-width: 950px) {
     .coursescards {
