@@ -74,7 +74,7 @@ return(
     <Dropdown3 /> 
     </div>
     
-    <div style={{display:'flex',justifyContent:'center',alignItems:'center'}}>
+    <div style={{display:searchtext.length>0?'none':'flex',justifyContent:'center',alignItems:'center'}}>
     
     { <Slideshow /> }
     

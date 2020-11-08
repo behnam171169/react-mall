@@ -18,10 +18,10 @@ const Nokiaa=(e)=>{
       <div class="primary_menu">
       <ul id="menu-primary-menu" class="menu">
         <li id="menu-item-8" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-home current-menu-item page_item page-item-6 current_page_item menu-item-8"><a href="#">صفحه اصلی</a></li>
-        <li id="menu-item-29" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-29"><a href="#" style={{fontSize:12}}>لوازم دیجیتال</a>
+        <li id="menu-item-29" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-29"><a href="#" style={{fontSize:12}}> لوازم برقی خانگی</a>
           <ul class="sub-menu">
-            <li id="menu-item-32" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-32"><a href="#">Webdesign</a></li>
-            <li id="menu-item-31" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-31"><a href="#">Grafisch</a></li>
+            <li id="menu-item-32" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-32"><a href="#">یخچال</a></li>
+            <li id="menu-item-31" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-31"><a href="#">ماشین لباسشویی</a></li>
             <li id="menu-item-30" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-30"><a href="#">Marketing</a>
               <ul class="sub-menu">
                 <li id="menu-item-13" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-13"><a href="#">Marketing facts</a></li>

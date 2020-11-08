@@ -6,7 +6,7 @@ const StufflistcontextProvider=(props)=>{
   const [modal, setModal] = useState(false);
   const [menuname,setMenuname]=useState('');
   const [flower, setflower] = useState([['گل لاله','گل'],['گل مریم','گل']]);
-  const[book,setbook]=useState(['بی ادب','زیبا','خوب','باادب'])
+  const[electric,setelectric]=useState([['یخچال','لوازم خانگی برقی'],['ماشین لباسشویی','لوازم خانگی برقی']])
   const [stufflist,setStufflidt]=useState([]);
   const [searchbar,setSearchbar]=useState(true);
   const changesearchbar=(x)=>{
@@ -31,7 +31,7 @@ const StufflistcontextProvider=(props)=>{
     setmenu(!menu)
   }
   return(
-    <Stufflistcontext.Provider value={{menu,changemenu,drawer,changedrawer,menuname,changemenuname,modal,changemodal,stufflist,changestufflist,book,flower,searchbar,changesearchbar}}>
+    <Stufflistcontext.Provider value={{menu,changemenu,drawer,changedrawer,menuname,changemenuname,modal,changemodal,stufflist,changestufflist,electric,flower,searchbar,changesearchbar}}>
     {props.children}
     </Stufflistcontext.Provider>
     )

@@ -11,7 +11,7 @@ import Logo from './../logo/logo';
  import {withRouter} from 'react-router-dom';
 const SideDrawer=(props)=>{
 
-    const {menu,changemenu,drawer,changedrawer,menuname,changemenuname,stufflist,changestufflist,book,flower}=useContext(Stufflistcontext)
+    const {menu,changemenu,drawer,changedrawer,menuname,changemenuname,stufflist,changestufflist,electric,flower}=useContext(Stufflistcontext)
     // const {menu,changemenu,drawer,changedrawer,menuname,changemenuname}=useContext(mainContext)
 
     // console.log(stufflist,'jhgf')
@@ -54,7 +54,7 @@ changestufflist(text)
   
     
     <Link style={{display:menu ?'none':'block',textDecoration:'none'}}  className="Draweritems" onClick={()=>closedrawer()} to="/">صفحه اصلی</Link>
-       <Link style={{display:menu ?'none':'block',textDecoration:'none'}}  className="Draweritems" onClick={()=>changeDrawer(flower)} >گل</Link>
+       <Link style={{display:menu ?'none':'block',textDecoration:'none'}}  className="Draweritems"  onClick={()=>changeDrawer(flower)} >گل</Link>
        
        <div className={classes2.join(' ')}>
            <div >
@@ -62,7 +62,7 @@ changestufflist(text)
            </div>
            <SlideDrowerpages  />
        </div>
-       <Link style={{display:menu ?'none':'block',textDecoration:'none'}} className="Draweritems" onClick={()=>changeDrawer(book)} >لوتزم خانگی</Link>
+       <Link style={{display:menu ?'none':'block',textDecoration:'none'}} className="Draweritems" onClick={()=>changeDrawer(electric)} >لوتزم خانگی</Link>
        <Link style={{display:menu ?'none':'block',textDecoration:'none'}} className="Draweritems" >آرایشی و بهداشتی</Link>
        <Link style={{display:menu ?'none':'block',textDecoration:'none'}} className="Draweritems"  onClick={changeDrawer} to="/Computer" > کامپیوتر و لپ تاپ</Link>
        <Link style={{display:menu ?'none':'block',textDecoration:'none'}} className="Draweritems" >لوازم جانبی دیجیتال</Link>

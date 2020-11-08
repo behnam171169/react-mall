@@ -10,22 +10,42 @@ import Dropdown3 from './../../Dropdown/Dropdown3/Dropdown3'
 import { IconContext } from "react-icons";
 import { GoSearch  } from "react-icons/go";
 const Stuff=(props)=>{
-    const [data, setdata] = useState([])
+   
     const {admin}=useContext(mainContext)
     const {changesearchbar,modal}=useContext(Stufflistcontext)
     const [showspiner,setShowspiner]=useState(false);
+    const [maindataa, setmaindataa] = useState([])
+    
+    const [data, setdata] = useState(maindataa)
+    const [searchtext, setSerchtext] = useState('')
+
+    
+    const serchdata=(event)=>{
+        const textData=event.target.value;
+        const itemData=maindataa.filter((item)=>{
+            const itemDataa=item.title;
+            return itemDataa.indexOf(textData)>-1
+        })
+        setdata(itemData)
+        setSerchtext(event.target.value)    
+    }
+    // const  dataa= [props.location.state[0],props.location.state[1]]
+    const dataa=localStorage.getItem('stuffdata')
     useEffect(()=>{
         changesearchbar(true)
         setShowspiner(true)
-    const  dataa=  [props.location.state[0],props.location.state[1]]
-        const data=JSON.stringify(dataa)  
+   
+    console.log(dataa,'zzzzzz')
+         
         axios.get(`${api.api}/allstuff/${dataa}`, { 
     })
     .then((response)=>{
         setShowspiner(false)
+        
         console.log(response.data,'hhh')
         if(response.status==200){
             setdata(response.data)
+            setmaindataa(response.data)
         }else if(response.status==400){
             setShowspiner(false)
             alert('خطایی رخ داد')
@@ -35,7 +55,7 @@ const Stuff=(props)=>{
         }  
     }
     )
-},[]);
+},[dataa]);
 const deletok=()=>{
     alert('حذف با موفقیت انجام شد')
     window.location.reload({forcedReload:true});
@@ -62,7 +82,7 @@ return(
  <GoSearch /> 
     </IconContext.Provider>
     </div>
-<input   type="text" className="stuffsearchinput" placeholder="جستجوی محصولات"/> 
+<input onChange={serchdata}  type="text" className="stuffsearchinput" placeholder="جستجوی محصولات"/> 
 </div>
 <div className="stuffsearchlogo">
 <text style={{fontSize:25,color:'green'}}>به کالا</text>
@@ -117,7 +137,7 @@ return(
         
         </div>
         
-        )
+        ) 
     }
     </div>
     </React.Fragment>

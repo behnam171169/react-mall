@@ -13,9 +13,9 @@ const Resetpassword=(props)=>{
   const {login}=useContext(mainContext)
   const [username, setusername] = useState('');
   const [errors, seterrors] = useState('');
-
   const [recaptcha,setRecaptcha]=useState(true);
   const [showspiner,setShowspiner]=useState(false);
+
   useEffect(()=>{
     changesearchbar(false)
   })
@@ -26,7 +26,7 @@ const Resetpassword=(props)=>{
     setRecaptcha(true)
   }
   const gochangeEmail=()=>{
-    props.history.push('/Changepassword');
+    props.history.push('Changepassword/:token');
   
   }
   const reset=()=>{
@@ -67,8 +67,8 @@ const Resetpassword=(props)=>{
               confirmButtonText: 'متوجه شدم',
             })
             setShowspiner(false)
-            
-            gochangeEmail()
+            seterrors('')
+            // gochangeEmail()
             
           }else if(statuse == 400){
             setShowspiner(false)

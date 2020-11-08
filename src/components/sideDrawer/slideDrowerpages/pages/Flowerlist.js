@@ -8,9 +8,10 @@ const Flowerlist=(props)=>{
     const selectstuff=(x)=>{
         changedrawer()
         props.history.push({
-            pathname:`/Stuff/${x}`,
-            state:x
+            pathname:`/Stuff/${x[0]}`,
+            // state:x
         })
+        localStorage.setItem('stuffdata',x)
     }
     return(
         <div >

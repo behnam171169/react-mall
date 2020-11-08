@@ -164,7 +164,7 @@ seterrors('لطفا دسته بندی را مشخص کنید')
       </option> 
     <option value="گل">گل</option>
     <option value="گوشی">گوشی</option>
-    <option value="">BMW</option>
+    <option value="لوازم خانگی برقی">لوازم خانگی برقی</option>
   </select>
  
   

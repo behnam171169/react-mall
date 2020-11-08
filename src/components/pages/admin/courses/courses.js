@@ -57,10 +57,7 @@ const deletok=()=>{
     <div className="coursescards">
                    <Link to={{
   pathname: '/postdetails',
-  state: {
-id:dataa._id,
-image:dataa.images,
-  }
+  state:dataa
 }}>
     
               
